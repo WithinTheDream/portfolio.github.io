@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Portofolio Lembaran Kertas (B&W)</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#000000',
+            paper: '#ffffff',
+          },
+          fontFamily: {
+            hand: ['Patrick Hand', 'Kalam', 'cursive', 'sans-serif'],
+            notes: ['Kalam', 'cursive', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Kalam, Patrick Hand, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Doodle Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom B&W Paper Theme Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-paper text-ink selection:bg-black selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- =========================================================================
+       1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
+       ========================================================================= -->
+  <nav class="paper-navbar-wrapper" aria-label="Main Navigation">
+    <div class="paper-navbar-pill">
+      <!-- Menu 1: Home -->
+      <a href="index.html" class="paper-nav-item">
+        <i class="fa-solid fa-house text-sm"></i>
+        <span>Home</span>
+      </a>
+      
+      <!-- Menu 2: My Work -->
+      <a href="work.html" class="paper-nav-item">
+        <i class="fa-solid fa-pencil text-sm"></i>
+        <span>My Work</span>
+      </a>
+      
+      <!-- Menu 3: Contact (Active) -->
+      <a href="contact.html" class="paper-nav-item active">
+        <i class="fa-solid fa-envelope text-sm"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       CONTACT SECTION: DI KERTAS SENDIRI (B&W)
+       ========================================================================= -->
+  <main class="max-w-5xl mx-auto px-6 pt-32 pb-16 w-full flex-1 flex flex-col justify-center">
+    
+    <!-- Lembaran Kertas Mandiri (B&W Paper Sheet Canvas) -->
+    <div class="contact-paper-sheet relative">
+      <!-- Masking Tape di Atas Lembaran Kertas -->
+      <div class="masking-tape tape-top-left"></div>
+      <div class="masking-tape tape-top-right"></div>
+
+      <!-- Informasi Bagian Atas -->
+      <header class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-block px-4 py-1 bg-white border-2 border-ink rounded-full font-hand text-lg font-bold shadow-[2px_2px_0px_#000000] mb-3 transform -rotate-1">
+          💌 Lembar Kontak & Obrolan
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-ink font-sans mb-3">
+          Mari Terhubung & Berbincang
+        </h1>
+        <p class="font-notes text-xl text-gray-700">
+          Pilih salah satu buku atau catatan yang melayang di sekeliling untuk membuka jalur komunikasi!
+        </p>
+      </header>
+
+      <!-- Stage Tengah: Area Pusat Dikelilingi Buku-Buku Kontak Melayang (B&W) -->
+      <div class="relative min-h-[380px] flex items-center justify-center my-6">
+        
+        <!-- Elemen Pusat (Pusat Sketsa Meja Kerja) -->
+        <div class="z-20 text-center flex flex-col items-center">
+          <div class="w-36 h-36 md:w-44 md:h-44 bg-white border-3 border-dashed border-ink rounded-full flex flex-col items-center justify-center p-4 shadow-[4px_4px_0px_#000000] transform rotate-2 hover:rotate-0 transition-transform">
+            <i class="fa-solid fa-feather-pointed text-4xl text-ink mb-2"></i>
+            <span class="font-hand text-xl font-bold text-ink">Sanctuary</span>
+            <span class="font-sans text-[11px] text-gray-600 font-semibold">Ruang Santai Sketsa</span>
+          </div>
+
+          <div class="mt-3 px-3 py-1 bg-white border border-ink rounded-full shadow-[1px_1px_0px_#000000]">
+            <span class="font-hand text-sm text-ink font-bold">✨ Buka untuk pesan baru</span>
+          </div>
+        </div>
+
+        <!-- Buku-Buku & Objek Kontak yang Mengelilingi Pusat (B&W) -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 w-full absolute inset-0 items-center pointer-events-none">
+          
+          <!-- Buku 1: Instagram -->
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+             class="sketch-book-btn pointer-events-auto transform -rotate-3 hover:scale-105">
+            <i class="fa-brands fa-instagram text-black"></i>
+            <span class="font-hand text-lg font-bold text-ink">Instagram</span>
+            <span class="font-sans text-xs text-gray-600">@karyaku</span>
+          </a>
+
+          <!-- Buku 2: GitHub -->
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+             class="sketch-book-btn pointer-events-auto transform rotate-2 hover:scale-105">
+            <i class="fa-brands fa-github text-black"></i>
+            <span class="font-hand text-lg font-bold text-ink">GitHub</span>
+            <span class="font-sans text-xs text-gray-600">Repository</span>
+          </a>
+
+          <!-- Spacer untuk Tengah di Layar Desktop -->
+          <div class="hidden md:block"></div>
+
+          <!-- Buku 3: LinkedIn -->
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
+             class="sketch-book-btn pointer-events-auto transform -rotate-2 hover:scale-105">
+            <i class="fa-brands fa-linkedin text-black"></i>
+            <span class="font-hand text-lg font-bold text-ink">LinkedIn</span>
+            <span class="font-sans text-xs text-gray-600">Koneksi</span>
+          </a>
+
+          <!-- Buku 4: Surel / Email -->
+          <a href="mailto:halo@portofolio.me" 
+             class="sketch-book-btn pointer-events-auto transform rotate-4 hover:scale-105">
+            <i class="fa-solid fa-envelope text-black"></i>
+            <span class="font-hand text-lg font-bold text-ink">Email</span>
+            <span class="font-sans text-xs text-gray-600">halo@portofolio.me</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Tombol WhatsApp Mengambang di Bawah Stage (B&W) -->
+      <div class="flex justify-center mt-2 mb-10">
+        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" 
+           class="btn-sketch btn-sketch-primary text-xl transform rotate-1 hover:rotate-0">
+          <i class="fa-brands fa-whatsapp text-2xl"></i>
+          <span>Hubungi Langsung via WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Informasi Bagian Bawah: Formulir Memo Kirim Pesan B&W -->
+      <div class="border-t-2 border-dashed border-black pt-8 mt-6">
+        <div class="bg-gray-50 p-6 md:p-8 rounded-xl border-2 border-ink shadow-[3px_3px_0px_#000000]">
+          <h3 class="font-hand text-2xl font-bold text-ink mb-2">
+            ✏️ Ingin Menitipkan Pesan atau Tawaran Proyek?
+          </h3>
+          <p class="font-notes text-lg text-ink mb-4">
+            Silakan kirimkan email ke <strong class="text-ink underline">halo@portofolio.me</strong>. Biasanya aku membalas dalam kurun waktu 1x24 jam di hari kerja.
+          </p>
+
+          <div class="flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex items-center gap-2 font-hand text-base text-gray-700">
+              <i class="fa-solid fa-location-dot text-black"></i>
+              <span>Indonesia • Terbuka untuk Remote / Onsite Project</span>
+            </div>
+            <a href="mailto:halo@portofolio.me" class="btn-sketch text-lg">
+              <span>Buka Aplikasi Email</span>
+              <i class="fa-solid fa-paper-plane text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Kertas B&W -->
+  <footer class="py-6 text-center border-t-2 border-dashed border-black bg-white">
+    <p class="font-hand text-lg text-gray-700">
+      &copy; 2026 Portofolio Dunia Kertas • Halaman Contact (B&W Edition)
+    </p>
+  </footer>
+
+</body>
+</html>
