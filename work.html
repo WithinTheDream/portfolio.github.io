@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -251,12 +251,12 @@
   <!-- Footer Kertas B&W -->
   <footer class="py-8 text-center border-t-2 border-dashed border-black bg-white relative z-20">
     <p class="font-hand text-lg text-gray-700">
-      &copy; 2026 Portofolio Dunia Kertas • Halaman My Work (Falling Journey with falls1 - falls3)
+      &copy; 2026 Portofolio Dunia Kertas • Halaman My Work (Falling Journey with fallB1 - fallB6)
     </p>
   </footer>
 
   <!-- =======================================================================
-       SCRIPT KHUSUS: FALLING SEQUENCE (falls1 - falls3) & HEFTY WIND GUSTS
+       SCRIPT KHUSUS: FALLING SEQUENCE (fallB1-fallB6) & WIND GUSTS ON SCROLL
        ======================================================================= -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -264,24 +264,45 @@
       const fallStatusText = document.getElementById('fallStatusText');
       const windContainer = document.getElementById('windContainer');
 
-      // Tiga frame karakter jatuh dari gambar pengguna
+      // 6 frame karakter jatuh (fallB series)
       const fallFrames = [
-        'assets/falls1.png',
-        'assets/falls2.png',
-        'assets/falls3.png'
+        'assets/fallB1.png',
+        'assets/fallB2.png',
+        'assets/fallB3.png',
+        'assets/fallB4.png',
+        'assets/fallB5.png',
+        'assets/fallB6.png'
       ];
 
-      // Preload gambar untuk kelancaran pergantian frame tanpa jeda
-      fallFrames.forEach(src => {
-        const img = new Image();
-        img.src = src;
-      });
+      fallFrames.forEach(src => { const img = new Image(); img.src = src; });
+
+      function getWindElements() {
+        if (!windContainer) return [];
+        return [
+          ...windContainer.querySelectorAll('.wind-stream'),
+          ...windContainer.querySelectorAll('.wind-swirl'),
+          ...windContainer.querySelectorAll('.paper-flutter')
+        ];
+      }
+
+      function pauseWind() {
+        getWindElements().forEach(el => { el.style.animationPlayState = 'paused'; });
+        if (windContainer) windContainer.style.filter = 'none';
+      }
+
+      function resumeWind() {
+        getWindElements().forEach(el => { el.style.animationPlayState = 'running'; });
+      }
+
+      // Start paused
+      pauseWind();
 
       let currentFrameIdx = 0;
       let lastScrollY = window.scrollY;
       let scrollAccumulator = 0;
-      const frameThreshold = 40; // Setiap scroll 40px ganti 1 frame
+      const frameThreshold = 50;
       let idleTimeout = null;
+      let isScrolling = false;
 
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
@@ -291,55 +312,49 @@
         if (Math.abs(delta) > 1) {
           scrollAccumulator += delta;
 
-          // SCROLL DOWN: Frame berputar maju (falls1 -> falls2 -> falls3)
+          if (!isScrolling) {
+            isScrolling = true;
+            resumeWind();
+          }
+
           if (scrollAccumulator >= frameThreshold) {
             currentFrameIdx = (currentFrameIdx + 1) % fallFrames.length;
             scrollAccumulator = 0;
             updateFallFrame('down');
-          }
-          // SCROLL UP: Frame berputar mundur / reverse (falls3 -> falls2 -> falls1)
-          else if (scrollAccumulator <= -frameThreshold) {
+          } else if (scrollAccumulator <= -frameThreshold) {
             currentFrameIdx = (currentFrameIdx - 1 + fallFrames.length) % fallFrames.length;
             scrollAccumulator = 0;
             updateFallFrame('up');
           }
 
-          // Efek terpaan angin: miringkan karakter sedikit mengikuti laju scroll
           if (fallingSprite) {
             const windTilt = Math.max(-12, Math.min(12, delta * 0.4));
-            fallingSprite.style.transform = `rotate(${windTilt}deg) scale(1.03)`;
+            fallingSprite.style.transform = 
+otate(deg) scale(1.03);
           }
 
-          // Efek hembusan angin: tambah intensitas animasi garis angin
           if (windContainer) {
             windContainer.style.filter = 'drop-shadow(0 0 4px rgba(0,0,0,0.3))';
           }
 
-          // Reset timeout idle
           if (idleTimeout) clearTimeout(idleTimeout);
 
-          // Saat scroll berhenti: Karakter BERHENTI di frame terakhir (TIDAK reset)
           idleTimeout = setTimeout(() => {
-            if (fallingSprite) {
-              fallingSprite.style.transform = 'rotate(0deg) scale(1)';
-            }
-            if (windContainer) {
-              windContainer.style.filter = 'none';
-            }
+            isScrolling = false;
+            pauseWind();
+            if (fallingSprite) fallingSprite.style.transform = 'rotate(0deg) scale(1)';
             if (fallStatusText) {
-              fallStatusText.textContent = `🍂 Melayang diam di Frame ${currentFrameIdx + 1} • Scroll untuk lanjut`;
+              fallStatusText.textContent = 🍂 Melayang diam di Frame  / 6 • Scroll untuk lanjut;
             }
-          }, 220);
+          }, 250);
         }
       });
 
       function updateFallFrame(direction) {
-        if (fallingSprite) {
-          fallingSprite.src = fallFrames[currentFrameIdx];
-        }
+        if (fallingSprite) fallingSprite.src = fallFrames[currentFrameIdx];
         if (fallStatusText) {
           const actionText = direction === 'down' ? 'Terjun Menembus Angin' : 'Melesat Mengapung ke Atas';
-          fallStatusText.textContent = `🍃 ${actionText} • Frame ${currentFrameIdx + 1}`;
+          fallStatusText.textContent = 🍃 \ • Frame \ / 6;
         }
       }
     });
