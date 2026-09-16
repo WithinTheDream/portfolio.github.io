@@ -570,8 +570,13 @@
             }
           }
 
-          // Jalankan animasi hembusan angin saat scroll aktif
+          // Jalankan animasi hembusan angin saat scroll aktif & sesuaikan arah
           if (windContainer) {
+            if (delta > 0) {
+              windContainer.classList.remove('wind-direction-down');
+            } else if (delta < 0) {
+              windContainer.classList.add('wind-direction-down');
+            }
             windContainer.classList.add('wind-active');
           }
           if (fallingCharStage) {
