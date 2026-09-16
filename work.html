@@ -39,16 +39,6 @@
 <body class="bg-paper text-ink selection:bg-black selection:text-white">
 
   <!-- =========================================================================
-       PAGE ENTRANCE LOAD ANIMATION
-       ========================================================================= -->
-  <div class="page-loader-overlay" id="pageLoaderOverlay">
-    <div class="loader-sketch-box">
-      <div class="loader-sketch-spinner"></div>
-      <span class="loader-sketch-text">Membuka Sketsa Karya...</span>
-    </div>
-  </div>
-
-  <!-- =========================================================================
        1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
        ========================================================================= -->
   <nav class="paper-navbar-wrapper" aria-label="Main Navigation">
@@ -132,17 +122,16 @@
            style="top: 2900px; left: 8%; width: 160px;">
     </div>
 
-    <!-- Main Container dengan Z-Index 50 (Di atas Karakter Jatuh z-40) -->
     <main class="max-w-6xl mx-auto px-6 relative z-50">
       
-      <!-- Intro: Judul & Headline di Atas Karakter Jatuh (Z-Index 50) -->
-      <section class="min-h-[60vh] flex flex-col items-center justify-center text-center relative z-50 pt-16 pb-10">
+      <!-- Intro Spacer: Area Masuk Halaman (Tempat Karakter Mendarat Jatuh - z-index: 50 di Atas Karakter) -->
+      <section class="min-h-[65vh] flex flex-col items-center justify-center text-center relative z-50 work-intro-header">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-ink rounded-full font-hand text-lg font-bold shadow-[2px_2px_0px_#000000] mb-4 transform -rotate-1">
           <i class="fa-solid fa-terminal"></i>
           <span>Software Engineering & Creative Showcase</span>
         </div>
         
-        <h1 class="text-4xl md:text-6xl font-extrabold text-ink mb-4 font-sans drop-shadow-sm">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-ink mb-4 font-sans">
           Karya & Proyek Terpilih
         </h1>
         
@@ -315,6 +304,7 @@
       let scrollAccumulator = 0;
       const frameThreshold = 35;
       let idleTimeout = null;
+      let hasScrolledOnce = false;
 
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
@@ -323,6 +313,14 @@
 
         if (Math.abs(delta) > 1) {
           scrollAccumulator += delta;
+
+          // Inisialisasi efek angin hanya setelah user pertama kali scroll (bebas bug freeze di atas saat awal load)
+          if (!hasScrolledOnce) {
+            hasScrolledOnce = true;
+            if (windContainer) {
+              windContainer.classList.add('wind-initialized');
+            }
+          }
 
           // Jalankan animasi hembusan angin saat scroll aktif
           if (windContainer) {
@@ -379,25 +377,6 @@
         if (fallStatusText) {
           const actionText = direction === 'down' ? 'Terjun Menembus Angin' : 'Melesat Mengapung ke Atas';
           fallStatusText.textContent = `🍃 ${actionText} • Frame ${currentFrameIdx + 1}/6`;
-        }
-      }
-
-      // Dismiss Page Loader
-      const pageLoader = document.getElementById('pageLoaderOverlay');
-      if (pageLoader) {
-        const dismissLoader = () => {
-          setTimeout(() => {
-            pageLoader.classList.add('is-hidden');
-            setTimeout(() => {
-              pageLoader.style.display = 'none';
-            }, 450);
-          }, 200);
-        };
-
-        if (document.readyState === 'complete') {
-          dismissLoader();
-        } else {
-          window.addEventListener('load', dismissLoader);
         }
       }
     });

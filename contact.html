@@ -39,16 +39,6 @@
 <body class="bg-paper text-ink selection:bg-black selection:text-white min-h-screen flex flex-col justify-between">
 
   <!-- =========================================================================
-       PAGE ENTRANCE LOAD ANIMATION
-       ========================================================================= -->
-  <div class="page-loader-overlay" id="pageLoaderOverlay">
-    <div class="loader-sketch-box">
-      <div class="loader-sketch-spinner"></div>
-      <span class="loader-sketch-text">Membuka Studio Kontak...</span>
-    </div>
-  </div>
-
-  <!-- =========================================================================
        1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
        ========================================================================= -->
   <nav class="paper-navbar-wrapper" aria-label="Main Navigation">
@@ -193,26 +183,5 @@
     </p>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const pageLoader = document.getElementById('pageLoaderOverlay');
-      if (pageLoader) {
-        const dismissLoader = () => {
-          setTimeout(() => {
-            pageLoader.classList.add('is-hidden');
-            setTimeout(() => {
-              pageLoader.style.display = 'none';
-            }, 450);
-          }, 200);
-        };
-
-        if (document.readyState === 'complete') {
-          dismissLoader();
-        } else {
-          window.addEventListener('load', dismissLoader);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
