@@ -128,15 +128,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dialog responsif saat karakter melewati figura riwayat
     if (dialogText) {
-      if (charPixelPos >= 700 && charPixelPos <= 1100) {
+      if (charPixelPos >= 650 && charPixelPos <= 1100) {
         dialogText.textContent = "🎓 Zona Riwayat Pendidikan (SDN Ngaluran & Studi Lanjut)";
-      } else if (charPixelPos >= 1700 && charPixelPos <= 2100) {
-        dialogText.textContent = "💼 Zona Karir & Rekayasa Perangkat Lunak";
-      } else if (charPixelPos >= 2650 && charPixelPos <= 3050) {
-        dialogText.textContent = "🎨 Zona Hobi & Eksplorasi Seni Interaktif";
-      } else if (charPixelPos >= 3150) {
+      } else if (charPixelPos >= 1350 && charPixelPos <= 1800) {
+        dialogText.textContent = "🎤 Zona Panggung Musik & Eksplorasi Seni Band";
+      } else if (charPixelPos >= 2050 && charPixelPos <= 2500) {
+        dialogText.textContent = "💼 Zona Karir Rekayasa Software & Clean Code";
+      } else if (charPixelPos >= 2750 && charPixelPos <= 3150) {
+        dialogText.textContent = "🎨 Zona Coretan Sketsa Tangan & Creative Coding";
+      } else if (charPixelPos > 3150) {
         dialogText.textContent = "🚀 Ujung lorong! Lanjutkan eksplorasi ke halaman My Work";
-      } else if (charPixelPos <= 450) {
+      } else if (charPixelPos <= 500) {
         dialogText.textContent = "Melangkah menelusuri lorong profil & ide";
       }
     }
@@ -191,6 +193,53 @@ document.addEventListener('DOMContentLoaded', () => {
       stopWalkCycleAnimation();
     }
   }
+
+  // Controller Tombol Navigasi Panah Kiri & Kanan di Layar (Section 2)
+  const btnNavLeft = document.getElementById('btnCorridorNavLeft');
+  const btnNavRight = document.getElementById('btnCorridorNavRight');
+
+  function attachArrowButtonControls(button, direction) {
+    if (!button) return;
+
+    let isPressed = false;
+
+    const onPointerDown = (e) => {
+      e.preventDefault();
+      if (isPressed) return;
+      isPressed = true;
+      startMovement(direction);
+    };
+
+    const onPointerUp = (e) => {
+      if (!isPressed) return;
+      isPressed = false;
+      stopMovement();
+    };
+
+    button.addEventListener('mousedown', onPointerDown);
+    button.addEventListener('mouseup', onPointerUp);
+    button.addEventListener('mouseleave', onPointerUp);
+
+    button.addEventListener('touchstart', onPointerDown, { passive: false });
+    button.addEventListener('touchend', onPointerUp, { passive: false });
+    button.addEventListener('touchcancel', onPointerUp, { passive: false });
+
+    button.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        startMovement(direction);
+      }
+    });
+    button.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        stopMovement();
+      }
+    });
+  }
+
+  attachArrowButtonControls(btnNavLeft, 'left');
+  attachArrowButtonControls(btnNavRight, 'right');
 
   // Keyboard Controller (Panah Kiri/Kanan & A/D)
   const keysPressed = {};

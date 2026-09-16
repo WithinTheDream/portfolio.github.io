@@ -291,17 +291,18 @@ img {
 }
 
 /* Track Lorong Memanjang ke Kanan (3500px) */
+/* Track Lorong Memanjang ke Kanan (3500px) - Tinggi Diperluas agar Objek Leluasa Menyebar */
 .corridor-track {
   position: relative;
   width: 3500px;
-  min-height: 600px;
+  min-height: 720px;
   transition: transform 0.15s ease-out;
 }
 
 /* Karakter 400% Lebih Besar dengan Bayangan Tegas */
 .sketch-char-walker-huge {
   position: absolute;
-  bottom: 25px;
+  bottom: 30px;
   transform: translateX(-50%);
   width: 380px;
   display: flex;
@@ -310,7 +311,7 @@ img {
   transition: left 0.1s linear;
   user-select: none;
   cursor: grab;
-  z-index: 20; /* Berada di antara layer belakang dan depan */
+  z-index: 20; /* Berada di antara layer figura belakang dan depan */
 }
 
 .sketch-char-avatar-huge {
@@ -341,7 +342,7 @@ img {
   transition: width 0.15s ease;
 }
 
-/* UI DIALOG KARAKTER BARU (Minimalis Modern HUD) */
+/* UI DIALOG KARAKTER (Minimalis Modern Sleek HUD) */
 .char-dialog-minimal {
   position: absolute;
   top: -70px;
@@ -386,146 +387,184 @@ img {
   50% { transform: scale(1.3); opacity: 1; }
 }
 
-/* PANEL UI MINIMALIS DI SEBELAH KANAN LAYAR (MEMANJANG KE BAWAH) */
-.minimal-right-sidebar {
-  position: fixed;
-  right: 20px;
-  top: 120px;
-  bottom: 40px;
-  width: 64px;
+/* TOMBOL NAVIGASI PANAH KIRI & KANAN DI SECTION 2 */
+.corridor-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
   background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 32px;
-  box-shadow: 4px 4px 0px #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 8px;
-  z-index: 80;
-  pointer-events: auto;
-}
-
-.sidebar-track-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.sidebar-icon-btn {
-  width: 42px;
-  height: 42px;
-  border: 1.5px solid #000000;
+  border: 2.5px solid #000000;
   border-radius: 50%;
+  box-shadow: 4px 4px 0px #000000;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #000000;
-  background: #ffffff;
+  cursor: pointer;
+  z-index: 60;
+  user-select: none;
   transition: all 0.15s ease;
 }
 
-.sidebar-icon-btn:hover {
+.corridor-nav-arrow.arrow-left {
+  left: 24px;
+}
+
+.corridor-nav-arrow.arrow-right {
+  right: 24px;
+}
+
+.corridor-nav-arrow:hover {
   background: #000000;
   color: #ffffff;
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.sidebar-v-text {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-family: var(--font-hand);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #000000;
-  transform: rotate(180deg);
+.corridor-nav-arrow:active {
+  transform: translateY(-50%) translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000;
 }
 
-.sidebar-key-hint {
-  display: flex;
-  flex-direction: column;
+@media (max-width: 768px) {
+  .corridor-nav-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+  .corridor-nav-arrow.arrow-left {
+    left: 12px;
+  }
+  .corridor-nav-arrow.arrow-right {
+    right: 12px;
+  }
+}
+
+/* CLUSTER FIGURA SKETSA: FRAME TENGAH DENGAN TEKS KIRI, KANAN, & BAWAH */
+.corridor-figura-cluster {
+  position: absolute;
+  display: grid;
+  grid-template-areas:
+    "left center right"
+    ". bottom .";
+  grid-template-columns: 200px 240px 220px;
+  grid-template-rows: auto auto;
   align-items: center;
-  gap: 4px;
+  justify-items: center;
+  gap: 12px 18px;
+  user-select: none;
+  pointer-events: auto;
+  transition: transform 0.25s ease;
 }
 
-.sidebar-key-hint kbd {
+.corridor-figura-cluster:hover {
+  transform: translateY(-6px);
+}
+
+/* Z-Index Figura: Belakang vs Depan Karakter */
+.corridor-figura-cluster.obj-layer-back {
+  z-index: 12; /* Di belakang karakter (z-index: 20) */
+  opacity: 0.95;
+}
+
+.corridor-figura-cluster.obj-layer-front {
+  z-index: 32; /* Di depan karakter (z-index: 20) - efek tembus lorong */
+  opacity: 1;
+}
+
+.figura-frame-wrapper {
+  grid-area: center;
+  width: 240px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1.5px solid #000000;
-  border-radius: 6px;
-  background: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
+  position: relative;
 }
 
-/* FIGURA FOTO / OVERLAY RIWAYAT DI LORONG (DI BELAKANG KARAKTER) */
-.corridor-milestone-frame {
-  position: absolute;
-  width: 340px;
-  background: #ffffff;
-  border: 3px solid #000000;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 6px 6px 0px #000000;
-  z-index: 12; /* Di belakang karakter yang ber-z-index 20 */
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.figura-sketch-asset {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(4px 8px 12px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
 }
 
-.corridor-milestone-frame:hover {
-  transform: translateY(-8px);
-  box-shadow: 10px 10px 0px #000000;
+.corridor-figura-cluster:hover .figura-sketch-asset {
+  transform: scale(1.03) rotate(-1deg);
 }
 
-.milestone-img-box {
-  width: 100%;
-  height: 190px;
-  overflow: hidden;
-  border: 2px solid #000000;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  background: #f0f0f0;
+.figura-side-text {
+  display: flex;
+  flex-direction: column;
 }
 
-.milestone-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.figura-text-left {
+  grid-area: left;
+  text-align: right;
+  align-items: flex-end;
 }
 
-.milestone-tag {
+.figura-text-right {
+  grid-area: right;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.figura-text-bottom {
+  grid-area: bottom;
+  text-align: center;
+  align-items: center;
+  max-width: 290px;
+  margin-top: -6px;
+}
+
+.figura-tag {
   display: inline-block;
-  padding: 2px 10px;
+  padding: 1px 8px;
   background: #000000;
   color: #ffffff;
   border-radius: 9999px;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
 }
 
-.milestone-title {
+.figura-sub {
   font-family: var(--font-sans);
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  color: #000000;
-  margin-bottom: 6px;
-  line-height: 1.3;
+  color: #444444;
+  letter-spacing: 0.04em;
 }
 
-.milestone-desc {
+.figura-head {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.15;
+  margin: 2px 0 4px;
+}
+
+.figura-note {
   font-family: var(--font-notes);
   font-size: 0.95rem;
-  color: #222222;
-  line-height: 1.5;
+  color: #111111;
+  line-height: 1.35;
+}
+
+.figura-line {
+  width: 44px;
+  height: 2px;
+  background: #000000;
+  margin-top: 6px;
+  border-radius: 2px;
 }
 
 /* Objek PNG Berterbangan di Lorong (assets/object/) */
