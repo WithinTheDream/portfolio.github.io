@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Work - Portofolio Dunia Kertas (Falling Journey)</title>
+  <title>My Work - Portofolio Proyek Rekayasa & Kreatif</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome for Doodle Icons -->
+  <!-- FontAwesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Custom B&W Paper Theme Stylesheet -->
@@ -51,7 +51,7 @@
       
       <!-- Menu 2: My Work (Active) -->
       <a href="work.html" class="paper-nav-item active">
-        <i class="fa-solid fa-pencil text-sm"></i>
+        <i class="fa-solid fa-code text-sm"></i>
         <span>My Work</span>
       </a>
       
@@ -65,10 +65,10 @@
 
   <!-- =========================================================================
        EFEK ANGIN BERHEMBUS (WIND GUSTS & STREAMLINES B&W)
-       Garis hembusan angin melesat ke atas melewati karakter saat jatuh
+       - Opacity stabil (tidak mengurang saat berhenti scroll)
+       - Animasi aktif saat scroll & diam membeku saat idle
        ========================================================================= -->
   <div class="wind-gusts-container" id="windContainer">
-    <!-- Garis-Garis Angin Melesat Cepat ke Atas -->
     <div class="wind-stream stream-1"></div>
     <div class="wind-stream stream-2"></div>
     <div class="wind-stream stream-3"></div>
@@ -77,58 +77,66 @@
     <div class="wind-stream stream-6"></div>
     <div class="wind-stream stream-7"></div>
 
-    <!-- Pusaran Coretan Angin Berputar (Wind Swirls) -->
     <div class="wind-swirl swirl-1"><i class="fa-solid fa-wind"></i></div>
     <div class="wind-swirl swirl-2"><i class="fa-solid fa-wind"></i></div>
     <div class="wind-swirl swirl-3"><i class="fa-solid fa-wind"></i></div>
-
-    <!-- Serpihan Kertas Sketsa Terbang Terbawa Angin -->
-    <div class="paper-flutter flutter-1"></div>
-    <div class="paper-flutter flutter-2"></div>
-    <div class="paper-flutter flutter-3"></div>
   </div>
 
   <!-- =========================================================================
-       KARAKTER JATUH FIXED DI TENGAH LAYAR (falls1 - falls3)
-       - Masuk dengan efek jatuh dari langit (sky drop-in)
-       - Frame sequence saat scroll down: falls1 -> falls2 -> falls3
-       - Reverse saat scroll up: falls3 -> falls2 -> falls1
-       - Freeze di frame terakhir saat idle
+       KARAKTER JATUH SKALA 300% (fallB series)
+       Fixed di tengah layar
        ========================================================================= -->
   <div class="falling-character-stage drop-in" id="fallingCharStage">
-    <!-- Sprite Karakter Jatuh -->
     <div class="falling-sprite-box">
-      <img src="assets/falls1.png" alt="Karakter Jatuh" id="fallingCharSprite" class="falling-char-img wind-sway">
+      <img src="assets/fallB1.png" alt="Karakter Jatuh Skala 300%" id="fallingCharSprite" class="falling-char-img wind-sway">
     </div>
 
-    <!-- Status Indikator Jatuh & Hembusan Angin -->
-    <div class="mt-2 px-3 py-1 bg-white border-2 border-ink rounded-full shadow-[2px_2px_0px_#000000] whitespace-nowrap">
+    <!-- Status Indikator Jatuh -->
+    <div class="mt-2 px-3 py-1 bg-white border-2 border-ink rounded-full shadow-[2px_2px_0px_#000000] whitespace-nowrap z-50">
       <span class="font-hand text-sm font-bold text-ink" id="fallStatusText">
-        🍃 Terjun Bebas • Hembusan Angin Aktif
+        🍃 Terjun Bebas Menembus Ruang Proyek
       </span>
     </div>
   </div>
 
   <!-- =========================================================================
-       SCROLLABLE TRACK: PROYEK-PROYEK MELUNCUR NAIK KE ATAS (B&W)
+       SCROLLABLE TRACK: PORTOFOLIO KIRI & KANAN DENGAN OBJEK MELAYANG
        ========================================================================= -->
   <div class="work-falling-viewport">
     
-    <main class="max-w-4xl mx-auto px-6 relative z-10">
+    <!-- Objek-Objek PNG Melayang di Track Halaman Work -->
+    <div class="relative w-full max-w-6xl mx-auto pointer-events-none">
+      <img src="assets/object/cloud.png" alt="Cloud" class="work-floating-object" 
+           style="top: 250px; left: 10%; width: 180px;">
+      <img src="assets/object/chair.png" alt="Chair" class="work-floating-object" 
+           style="top: 650px; right: 8%; width: 170px;">
+      <img src="assets/object/book.png" alt="Book" class="work-floating-object" 
+           style="top: 1100px; left: 6%; width: 150px;">
+      <img src="assets/object/tv.png" alt="TV" class="work-floating-object" 
+           style="top: 1550px; right: 12%; width: 190px;">
+      <img src="assets/object/ball.png" alt="Ball" class="work-floating-object" 
+           style="top: 2000px; left: 12%; width: 130px;">
+      <img src="assets/object/randomshape2.png" alt="Shape" class="work-floating-object" 
+           style="top: 2450px; right: 14%; width: 140px;">
+      <img src="assets/object/book2.png" alt="Book 2" class="work-floating-object" 
+           style="top: 2900px; left: 8%; width: 160px;">
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 relative z-10">
       
       <!-- Intro Spacer: Area Masuk Halaman (Tempat Karakter Mendarat Jatuh) -->
-      <section class="min-h-[70vh] flex flex-col items-center justify-center text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-1 bg-white border-2 border-ink rounded-full font-hand text-lg font-bold shadow-[2px_2px_0px_#000000] mb-4 transform -rotate-1">
-          <i class="fa-solid fa-wind"></i>
-          <span>The Falling Portfolio Journey</span>
+      <section class="min-h-[65vh] flex flex-col items-center justify-center text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-ink rounded-full font-hand text-lg font-bold shadow-[2px_2px_0px_#000000] mb-4 transform -rotate-1">
+          <i class="fa-solid fa-terminal"></i>
+          <span>Software Engineering & Creative Showcase</span>
         </div>
         
         <h1 class="text-4xl md:text-6xl font-extrabold text-ink mb-4 font-sans">
-          Karya & Proyek Pilihan
+          Karya & Proyek Terpilih
         </h1>
         
-        <p class="font-notes text-xl md:text-2xl text-ink max-w-xl mx-auto mb-8">
-          Gulir layar ke bawah (scroll down). Saksikan karakterku melayang jatuh ditiup hembusan angin sementara karya-karya ini meluncur ke atas!
+        <p class="font-notes text-xl md:text-2xl text-ink max-w-xl mx-auto mb-6">
+          Scroll ke bawah untuk menembus lorong karya. Proyek tersusun di sisi kiri dan kanan sementara karakter meluncur di tengah!
         </p>
         
         <div class="animate-bounce text-2xl text-ink">
@@ -136,135 +144,147 @@
         </div>
       </section>
 
-      <!-- 1. Lembar Proyek: SDN Ngaluran (B&W) -->
-      <article class="project-sketch-card transform -rotate-1" id="projectNgaluran">
-        <div class="masking-tape tape-top-left"></div>
-        <div class="masking-tape tape-top-right"></div>
-        
-        <div class="flex items-center justify-between border-b-2 border-dashed border-gray-400 pb-3 mb-4">
-          <span class="font-hand text-xl font-bold text-black">#01 Proyek Edukasi</span>
-          <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-xs font-bold">2024 / BRANDING</span>
+      <!-- Susunan Portofolio Selang-Seling Kiri & Kanan -->
+      <div class="work-grid-container">
+
+        <!-- 1. Proyek KIRI: SDN Ngaluran -->
+        <div class="project-row-left">
+          <article class="project-split-card transform -rotate-1" id="projectNgaluran">
+            <div class="masking-tape tape-top-left"></div>
+            
+            <div class="flex items-center justify-between border-b-2 border-dashed border-gray-400 pb-3 mb-4">
+              <span class="font-hand text-xl font-bold text-black">#01 Proyek Pendidikan</span>
+              <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-xs font-bold">2024 / PLATFORM & BRANDING</span>
+            </div>
+
+            <h2 class="text-3xl font-extrabold text-ink mb-3 font-sans">
+              SDN Ngaluran
+            </h2>
+
+            <p class="font-notes text-xl text-ink leading-relaxed mb-6">
+              Pengembangan sistem portal informasi dan perancangan identitas visual interaktif untuk SDN Ngaluran. Menggabungkan arsitektur web yang ramah pengguna dengan visual ilustratif untuk meningkatkan efisiensi publikasi dan kenyamanan komunikasi edukatif.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Web Engineering</span>
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">UI/UX Architecture</span>
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Visual Identity</span>
+            </div>
+
+            <div class="p-6 bg-gray-50 border-2 border-dashed border-ink rounded-xl text-center">
+              <i class="fa-solid fa-graduation-cap text-4xl text-black mb-2"></i>
+              <h4 class="font-hand text-2xl font-bold text-ink">SISTEM INFORMASI SDN NGALURAN</h4>
+              <p class="font-sans text-xs text-gray-600 mt-1">Platform terstruktur & identitas kreatif</p>
+            </div>
+          </article>
         </div>
 
-        <h2 class="text-3xl font-extrabold text-ink mb-3 font-sans">
-          SDN Ngaluran
-        </h2>
+        <!-- 2. Proyek KANAN: PAC -->
+        <div class="project-row-right">
+          <article class="project-split-card transform rotate-1" id="projectPAC">
+            <div class="masking-tape tape-top-right"></div>
+            
+            <div class="flex items-center justify-between border-b-2 border-dashed border-gray-400 pb-3 mb-4">
+              <span class="font-hand text-xl font-bold text-black">#02 Sistem Komunikasi</span>
+              <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-xs font-bold">2025 / CAMPAIGN & SYSTEM</span>
+            </div>
 
-        <p class="font-notes text-xl text-ink leading-relaxed mb-6">
-          Perancangan identitas visual, karakter edukatif, dan materi desain ramah anak untuk SDN Ngaluran. Menggabungkan konsep gambar tangan yang bersahabat agar menciptakan lingkungan belajar yang menyenangkan bagi siswa.
-        </p>
+            <h2 class="text-3xl font-extrabold text-ink mb-3 font-sans">
+              PAC (Pimpinan Anak Cabang)
+            </h2>
 
-        <!-- Stempel & Tags Coretan B&W -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Visual Identity</span>
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Ilustrasi Edukasi</span>
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">School Platform</span>
+            <p class="font-notes text-xl text-ink leading-relaxed mb-6">
+              Arsitektur sistem manajemen informasi dan publikasi media terpadu untuk organisasi PAC. Membangun platform alur data kegiatan yang terotomatisasi dengan panduan visual yang tegas dan modern bagi komunitas.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">System Architecture</span>
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Community Platform</span>
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Digital Asset</span>
+            </div>
+
+            <div class="p-6 bg-gray-50 border-2 border-dashed border-ink rounded-xl text-center">
+              <i class="fa-solid fa-network-wired text-4xl text-black mb-2"></i>
+              <h4 class="font-hand text-2xl font-bold text-ink">PAC MEDIA & DATA NETWORK</h4>
+              <p class="font-sans text-xs text-gray-600 mt-1">Sistem informasi organisasi terintegrasi</p>
+            </div>
+          </article>
         </div>
 
-        <!-- Mockup Sketsa Proyek B&W -->
-        <div class="p-6 bg-gray-50 border-2 border-dashed border-ink rounded-xl text-center">
-          <i class="fa-solid fa-graduation-cap text-4xl text-black mb-2"></i>
-          <h4 class="font-hand text-2xl font-bold text-ink">SKETSA DESAIN SDN NGALURAN</h4>
-          <p class="font-sans text-xs text-gray-600 mt-1">Konsep maskot kartun dan lembaran modul interaktif</p>
-        </div>
-      </article>
+        <!-- 3. Proyek KIRI: SVM -->
+        <div class="project-row-left">
+          <article class="project-split-card transform -rotate-0.5" id="projectSVM">
+            <div class="masking-tape tape-top-left"></div>
+            
+            <div class="flex items-center justify-between border-b-2 border-dashed border-gray-400 pb-3 mb-4">
+              <span class="font-hand text-xl font-bold text-black">#03 Komputasi & Seni Digital</span>
+              <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-xs font-bold">2026 / TECH & ART</span>
+            </div>
 
-      <!-- 2. Lembar Proyek: PAC (B&W) -->
-      <article class="project-sketch-card transform rotate-1" id="projectPAC">
-        <div class="masking-tape tape-top-center"></div>
-        
-        <div class="flex items-center justify-between border-b-2 border-dashed border-gray-400 pb-3 mb-4">
-          <span class="font-hand text-xl font-bold text-black">#02 Media Komunikasi</span>
-          <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-xs font-bold">2025 / CAMPAIGN</span>
-        </div>
+            <h2 class="text-3xl font-extrabold text-ink mb-3 font-sans">
+              SVM
+            </h2>
 
-        <h2 class="text-3xl font-extrabold text-ink mb-3 font-sans">
-          PAC (Pimpinan Anak Cabang)
-        </h2>
+            <p class="font-notes text-xl text-ink leading-relaxed mb-6">
+              Eksplorasi komputasi interaktif grafis dan rekayasa media SVM. Menghubungkan algoritma web dinamis dengan estetika sketsa manual, memungkinkan pengguna berinteraksi langsung dengan kanvas data visual secara real-time.
+            </p>
 
-        <p class="font-notes text-xl text-ink leading-relaxed mb-6">
-          Pengembangan sistem media informasi kreatif dan publikasi untuk organisasi PAC. Fokus pada pembuatan aset grafis bertema ilustratif yang tegas, berkarakter, dan mudah dikenali oleh komunitas luas.
-        </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Creative Coding</span>
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Interactive Algorithm</span>
+              <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Data Canvas</span>
+            </div>
 
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Creative Direction</span>
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Publikasi Komunitas</span>
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Poster Art</span>
-        </div>
-
-        <div class="p-6 bg-gray-50 border-2 border-dashed border-ink rounded-xl text-center">
-          <i class="fa-solid fa-layer-group text-4xl text-black mb-2"></i>
-          <h4 class="font-hand text-2xl font-bold text-ink">PAC VISUAL IDENTITY & MEDIA</h4>
-          <p class="font-sans text-xs text-gray-600 mt-1">Sistem panduan gaya dan grafis sosial media</p>
-        </div>
-      </article>
-
-      <!-- 3. Lembar Proyek: SVM (B&W) -->
-      <article class="project-sketch-card transform -rotate-0.5" id="projectSVM">
-        <div class="masking-tape tape-top-left"></div>
-        
-        <div class="flex items-center justify-between border-b-2 border-dashed border-gray-400 pb-3 mb-4">
-          <span class="font-hand text-xl font-bold text-black">#03 Eksplorasi Digital</span>
-          <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-xs font-bold">2026 / TECH & ART</span>
+            <div class="p-6 bg-gray-50 border-2 border-dashed border-ink rounded-xl text-center">
+              <i class="fa-solid fa-cube text-4xl text-black mb-2"></i>
+              <h4 class="font-hand text-2xl font-bold text-ink">SVM COMPUTATIONAL VISUAL</h4>
+              <p class="font-sans text-xs text-gray-600 mt-1">Implementasi algoritma grafis interaktif</p>
+            </div>
+          </article>
         </div>
 
-        <h2 class="text-3xl font-extrabold text-ink mb-3 font-sans">
-          SVM
-        </h2>
-
-        <p class="font-notes text-xl text-ink leading-relaxed mb-6">
-          Eksperimen seni komputasi dan media visual interaktif SVM. Menjembatani kehangatan goresan tangan manusia dengan logika digital untuk menciptakan karya yang hidup dan dapat dimanipulasi oleh pengguna.
-        </p>
-
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Interactive Coding</span>
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Generative Visual</span>
-          <span class="px-3 py-1 bg-white border-2 border-ink rounded-lg font-hand text-base font-bold shadow-[2px_2px_0px_#000000]">Web Canvas Art</span>
+        <!-- 4. Penutup KANAN: Lanjut ke Halaman Contact -->
+        <div class="project-row-right">
+          <div class="project-split-card text-center transform rotate-1">
+            <div class="masking-tape tape-top-center"></div>
+            <h3 class="font-hand text-3xl font-bold text-ink mb-3">Siap Berkolaborasi?</h3>
+            <p class="font-notes text-xl text-gray-700 mb-6">
+              Mari diskusikan rekayasa sistem, pengembangan website interaktif, atau proyek kreatif berikutnya di halaman kontak!
+            </p>
+            <a href="contact.html" class="btn-sketch btn-sketch-primary text-xl">
+              <span>Buka Halaman Kontak</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="p-6 bg-gray-50 border-2 border-dashed border-ink rounded-xl text-center">
-          <i class="fa-solid fa-cube text-4xl text-black mb-2"></i>
-          <h4 class="font-hand text-2xl font-bold text-ink">SVM CREATIVE EXPERIMENT</h4>
-          <p class="font-sans text-xs text-gray-600 mt-1">Protototipe visual interaktif berbasis gambar</p>
-        </div>
-      </article>
-
-      <!-- Lembar Penutup: Lanjut ke Halaman Contact B&W -->
-      <div class="project-sketch-card text-center transform rotate-1 mb-24">
-        <h3 class="font-hand text-3xl font-bold text-ink mb-3">Tertarik dengan karya-karyaku?</h3>
-        <p class="font-notes text-xl text-gray-700 mb-6">
-          Mari melompat ke halaman Contact di lembar kertas sendiri untuk berdiskusi atau berkolaborasi!
-        </p>
-        <a href="contact.html" class="btn-sketch btn-sketch-primary text-xl">
-          <span>Buka Halaman Contact</span>
-          <i class="fa-solid fa-paper-plane"></i>
-        </a>
       </div>
 
       <!-- Bottom Spacer -->
-      <div class="h-44"></div>
+      <div class="h-40"></div>
 
     </main>
 
   </div>
 
   <!-- Footer Kertas B&W -->
-  <footer class="py-8 text-center border-t-2 border-dashed border-black bg-white relative z-20">
+  <footer class="py-8 text-center border-t-2 border-dashed border-black bg-white relative z-30">
     <p class="font-hand text-lg text-gray-700">
-      &copy; 2026 Portofolio Dunia Kertas • Halaman My Work (Falling Journey with fallB1 - fallB6)
+      &copy; 2026 Adam • Programmer & Creative Developer • Halaman My Work
     </p>
   </footer>
 
   <!-- =======================================================================
-       SCRIPT KHUSUS: FALLING SEQUENCE (fallB1-fallB6) & WIND GUSTS ON SCROLL
+       SCRIPT: FALLB SERIES (fallB1 - fallB6) & STABLE WIND GUSTS
        ======================================================================= -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const fallingSprite = document.getElementById('fallingCharSprite');
       const fallStatusText = document.getElementById('fallStatusText');
       const windContainer = document.getElementById('windContainer');
+      const fallingCharStage = document.getElementById('fallingCharStage');
 
-      // 6 frame karakter jatuh (fallB series)
+      // Enam frame karakter jatuh fallB series
       const fallFrames = [
         'assets/fallB1.png',
         'assets/fallB2.png',
@@ -274,35 +294,16 @@
         'assets/fallB6.png'
       ];
 
-      fallFrames.forEach(src => { const img = new Image(); img.src = src; });
-
-      function getWindElements() {
-        if (!windContainer) return [];
-        return [
-          ...windContainer.querySelectorAll('.wind-stream'),
-          ...windContainer.querySelectorAll('.wind-swirl'),
-          ...windContainer.querySelectorAll('.paper-flutter')
-        ];
-      }
-
-      function pauseWind() {
-        getWindElements().forEach(el => { el.style.animationPlayState = 'paused'; });
-        if (windContainer) windContainer.style.filter = 'none';
-      }
-
-      function resumeWind() {
-        getWindElements().forEach(el => { el.style.animationPlayState = 'running'; });
-      }
-
-      // Start paused
-      pauseWind();
+      fallFrames.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
 
       let currentFrameIdx = 0;
       let lastScrollY = window.scrollY;
       let scrollAccumulator = 0;
-      const frameThreshold = 50;
+      const frameThreshold = 35;
       let idleTimeout = null;
-      let isScrolling = false;
 
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
@@ -312,49 +313,61 @@
         if (Math.abs(delta) > 1) {
           scrollAccumulator += delta;
 
-          if (!isScrolling) {
-            isScrolling = true;
-            resumeWind();
+          // Jalankan animasi hembusan angin saat scroll aktif
+          if (windContainer) {
+            windContainer.classList.add('wind-active');
+          }
+          if (fallingCharStage) {
+            fallingCharStage.classList.add('is-scrolling');
           }
 
+          // SCROLL DOWN: Frame maju berputar
           if (scrollAccumulator >= frameThreshold) {
             currentFrameIdx = (currentFrameIdx + 1) % fallFrames.length;
             scrollAccumulator = 0;
             updateFallFrame('down');
-          } else if (scrollAccumulator <= -frameThreshold) {
+          }
+          // SCROLL UP: Frame mundur (reverse)
+          else if (scrollAccumulator <= -frameThreshold) {
             currentFrameIdx = (currentFrameIdx - 1 + fallFrames.length) % fallFrames.length;
             scrollAccumulator = 0;
             updateFallFrame('up');
           }
 
+          // Kemiringan halus merespons angin
           if (fallingSprite) {
-            const windTilt = Math.max(-12, Math.min(12, delta * 0.4));
-            fallingSprite.style.transform = 
-otate(deg) scale(1.03);
-          }
-
-          if (windContainer) {
-            windContainer.style.filter = 'drop-shadow(0 0 4px rgba(0,0,0,0.3))';
+            const windTilt = Math.max(-10, Math.min(10, delta * 0.35));
+            fallingSprite.style.transform = `rotate(${windTilt}deg) scale(1.02)`;
           }
 
           if (idleTimeout) clearTimeout(idleTimeout);
 
+          // Saat scroll berhenti: Diam seketika, opacity tetap stabil
           idleTimeout = setTimeout(() => {
-            isScrolling = false;
-            pauseWind();
-            if (fallingSprite) fallingSprite.style.transform = 'rotate(0deg) scale(1)';
-            if (fallStatusText) {
-              fallStatusText.textContent = 🍂 Melayang diam di Frame  / 6 • Scroll untuk lanjut;
+            if (windContainer) {
+              windContainer.classList.remove('wind-active');
             }
-          }, 250);
+            if (fallingCharStage) {
+              fallingCharStage.classList.remove('is-scrolling');
+            }
+
+            if (fallingSprite) {
+              fallingSprite.style.transform = 'rotate(0deg) scale(1)';
+            }
+            if (fallStatusText) {
+              fallStatusText.textContent = `🍂 Melayang diam di Frame ${currentFrameIdx + 1}/6 • Angin stabil`;
+            }
+          }, 180);
         }
       });
 
       function updateFallFrame(direction) {
-        if (fallingSprite) fallingSprite.src = fallFrames[currentFrameIdx];
+        if (fallingSprite) {
+          fallingSprite.src = fallFrames[currentFrameIdx];
+        }
         if (fallStatusText) {
           const actionText = direction === 'down' ? 'Terjun Menembus Angin' : 'Melesat Mengapung ke Atas';
-          fallStatusText.textContent = 🍃 \ • Frame \ / 6;
+          fallStatusText.textContent = `🍃 ${actionText} • Frame ${currentFrameIdx + 1}/6`;
         }
       }
     });
