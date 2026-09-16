@@ -81,15 +81,16 @@ img {
   align-items: center;
   gap: 6px;
   padding: 5px 8px;
-  background: #ffffff;
+  background: #eaeaea; /* Sedikit di abu-abukan */
   border: none !important;
   border-radius: 9999px;
   box-shadow: none !important;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .paper-navbar-pill:hover {
   transform: translateY(-1px);
+  background: #e4e4e4;
   box-shadow: none !important;
 }
 
@@ -110,7 +111,7 @@ img {
 }
 
 .paper-nav-item:hover {
-  background: var(--bg-gray-light);
+  background: #d8d8d8;
   color: #000000;
   transform: none;
 }
@@ -844,6 +845,12 @@ img {
   animation: floatGentle 5s ease-in-out infinite alternate;
 }
 
+@keyframes floatGentle {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(-1deg); }
+}
+
 /* Header Judul & Konten Utama di Atas Karakter Jatuh (z-index: 50 > Karakter 40) */
 .work-intro-header {
   position: relative;
@@ -940,6 +947,76 @@ img {
 .contact-method-card:hover i,
 .contact-method-card:hover span {
   color: #ffffff !important;
+}
+
+/* ==========================================================================
+   BARISAN OBJEK PNG BERJEJERAN MELAYANG DI ATAS FOOTER (MY WORK)
+   ========================================================================== */
+.work-footer-objects-shelf {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px 36px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(12px, 2.5vw, 36px);
+  flex-wrap: wrap;
+  z-index: 45;
+  pointer-events: none;
+}
+
+.shelf-obj-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.shelf-obj-img {
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes shelfFloatSlow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(-1.5deg); }
+}
+
+@keyframes shelfFloatMedium {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-24px) rotate(-3.5deg); }
+  100% { transform: translateY(0px) rotate(2deg); }
+}
+
+@keyframes shelfFloatQuick {
+  0% { transform: translateY(0px) rotate(1.5deg); }
+  50% { transform: translateY(-14px) rotate(-2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.shelf-float-1 {
+  animation: shelfFloatSlow 4.8s ease-in-out infinite alternate;
+}
+
+.shelf-float-2 {
+  animation: shelfFloatMedium 4.2s ease-in-out infinite alternate 0.5s;
+}
+
+.shelf-float-3 {
+  animation: shelfFloatQuick 4.6s ease-in-out infinite alternate 1s;
+}
+
+.shelf-float-4 {
+  animation: shelfFloatSlow 5.2s ease-in-out infinite alternate 1.5s;
+}
+
+.shelf-float-5 {
+  animation: shelfFloatMedium 4.4s ease-in-out infinite alternate 0.8s;
 }
 
 /* ==========================================================================
