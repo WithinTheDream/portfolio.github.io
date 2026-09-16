@@ -97,12 +97,9 @@ function initSharedComponents() {
       <!-- Baris Bawah: Copyright & Label -->
       <div class="footer-bottom-bar">
         <p class="footer-copyright">
-          &copy; 2026 Adam • Programmer & Creative Software Developer • Tema B&W Paper Sketchbook
+          &copy; 2026 Adam
         </p>
         <div class="footer-bottom-badges">
-          <span class="footer-badge">B&W Edition</span>
-          <span class="footer-badge">Vanilla JS</span>
-          <span class="footer-badge">No Outline</span>
         </div>
       </div>
     </div>
