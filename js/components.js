@@ -105,6 +105,111 @@ function initSharedComponents() {
     </div>
   </footer>`;
   }
+
+  // 3. Inisialisasi Audio Latar & Tombol Kontrol Musik Global (Pojok Kanan Atas)
+  initGlobalMusic();
+}
+
+/**
+ * Pengontrol Musik Global (Autoplay pada Klik Pengguna & Toggle On/Off)
+ */
+function initGlobalMusic() {
+  // 1. Element Audio Musik Latar
+  let audio = document.getElementById('globalBgAudio');
+  if (!audio) {
+    audio = document.createElement('audio');
+    audio.id = 'globalBgAudio';
+    audio.src = 'assets/bgm.mp3';
+    audio.loop = true;
+    audio.preload = 'auto';
+    audio.volume = 0.35; // Volume nyaman untuk musik latar
+    document.body.appendChild(audio);
+  }
+
+  // 2. Tombol Musik di Pojok Kanan Atas
+  let btn = document.getElementById('bgmToggleBtn');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'bgmToggleBtn';
+    btn.className = 'bgm-toggle-btn';
+    btn.setAttribute('aria-label', 'Toggle Background Music');
+    btn.setAttribute('title', 'Putar / Hentikan Musik Latar');
+    btn.innerHTML = `
+      <span class="bgm-icon-box">
+        <i class="fa-solid fa-music"></i>
+      </span>
+      <span class="bgm-label-text">Music</span>
+      <span class="bgm-sound-bars">
+        <span class="bgm-bar"></span>
+        <span class="bgm-bar"></span>
+        <span class="bgm-bar"></span>
+      </span>
+    `;
+    document.body.appendChild(btn);
+  }
+
+  let isExplicitlyMuted = sessionStorage.getItem('bgm_muted') === 'true';
+
+  function playMusic() {
+    if (isExplicitlyMuted) return;
+    audio.play().then(() => {
+      btn.classList.add('is-playing');
+      sessionStorage.setItem('bgm_playing', 'true');
+    }).catch(() => {
+      // Menunggu interaksi klik pertama dari pengguna
+    });
+  }
+
+  function pauseMusic() {
+    audio.pause();
+    btn.classList.remove('is-playing');
+    sessionStorage.setItem('bgm_playing', 'false');
+  }
+
+  // Autoplay jika user klik apapun di website
+  function handleAnyUserInteraction(e) {
+    if (e.target && btn.contains(e.target)) return;
+    if (!isExplicitlyMuted && audio.paused) {
+      playMusic();
+    }
+  }
+
+  window.addEventListener('click', handleAnyUserInteraction, { passive: true });
+  window.addEventListener('keydown', handleAnyUserInteraction, { passive: true });
+  window.addEventListener('touchstart', handleAnyUserInteraction, { passive: true });
+
+  // Toggle on/off pada klik tombol di pojok kanan atas
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (audio.paused) {
+      isExplicitlyMuted = false;
+      sessionStorage.setItem('bgm_muted', 'false');
+      playMusic();
+    } else {
+      isExplicitlyMuted = true;
+      sessionStorage.setItem('bgm_muted', 'true');
+      pauseMusic();
+    }
+  });
+
+  // Sinkronisasi status audio
+  audio.addEventListener('play', () => btn.classList.add('is-playing'));
+  audio.addEventListener('pause', () => btn.classList.remove('is-playing'));
+
+  // Simpan posisi playback audio sebelum navigasi ke halaman lain
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem('bgm_time', audio.currentTime.toString());
+  });
+
+  // Restore posisi & lanjutkan pemutaran jika sebelumnya aktif
+  const savedTime = parseFloat(sessionStorage.getItem('bgm_time') || '0');
+  if (!isNaN(savedTime) && savedTime > 0) {
+    audio.currentTime = savedTime;
+  }
+
+  if (sessionStorage.getItem('bgm_playing') === 'true' && !isExplicitlyMuted) {
+    playMusic();
+  }
 }
 
 if (document.readyState === 'loading') {

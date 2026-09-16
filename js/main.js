@@ -129,26 +129,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dialog responsif saat karakter melewati figura riwayat (Minimalist Micro-HUD)
     if (dialogText) {
       if (charPixelPos >= 650 && charPixelPos <= 1100) {
-        dialogText.textContent = "🎓 SDN Ngaluran & Studi Lanjut";
+        dialogText.textContent = "SDN Ngaluran & Studi Lanjut";
       } else if (charPixelPos >= 1350 && charPixelPos <= 1800) {
-        dialogText.textContent = "🎤 Panggung Musik & Eksplorasi Seni Band";
+        dialogText.textContent = "Panggung Musik & Eksplorasi Seni Band";
       } else if (charPixelPos >= 2050 && charPixelPos <= 2500) {
-        dialogText.textContent = "💼 Karir Software Dev & Clean Code";
+        dialogText.textContent = "Karir Software Dev & Clean Code";
       } else if (charPixelPos >= 2750 && charPixelPos <= 3200) {
-        dialogText.textContent = "🎨 Sketsa Tangan & Creative Coding";
+        dialogText.textContent = "Sketsa Tangan & Creative Coding";
       } else if (charPixelPos >= 3350 && charPixelPos <= 3800) {
-        dialogText.textContent = "🌐 Ekosistem & Riset Open Source";
+        dialogText.textContent = "Ekosistem & Riset Open Source";
       } else if (charPixelPos >= 3950 && charPixelPos <= 4400) {
-        dialogText.textContent = "🚀 Visi Inovasi Rekayasa Web";
+        dialogText.textContent = "Visi Inovasi Rekayasa Web";
       } else if (charPixelPos > 4450) {
-        dialogText.textContent = "✨ Portal My Work! Tekan figura besar di depan 👆";
+        dialogText.textContent = "Tekan untuk melihat projek & portofolio";
       } else if (charPixelPos <= 500) {
         dialogText.textContent = "Melangkah menelusuri lorong profil";
       }
     }
   }
 
+  const walkHint = document.getElementById('walkHintIndicator');
+
+  function dismissWalkHint() {
+    if (walkHint && !walkHint.classList.contains('hint-hidden')) {
+      walkHint.classList.add('hint-hidden');
+      setTimeout(() => {
+        if (walkHint && walkHint.parentNode) {
+          walkHint.parentNode.removeChild(walkHint);
+        }
+      }, 500);
+    }
+  }
+
   function startMovement(dir) {
+    dismissWalkHint();
+
     if (gracefulStopTimeout) {
       clearTimeout(gracefulStopTimeout);
       gracefulStopTimeout = null;
