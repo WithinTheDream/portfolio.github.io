@@ -4,6 +4,7 @@
  * 1. Home (1): Scroll Smooth Transition
  * 2. Home (2): Lorong Panjang (Long Corridor) & Karakter 400% Walk Cycle
  *    - Kamera horizontal mengikuti langkah karakter menembus lorong objek
+ *    - Dialog minimalis modern merespons figura riwayat (Pendidikan, Karir, Hobi)
  *    - Animasi langkah kaki responsif untuk SINGLE TAP maupun HOLD
  *    - Pembalikan hadap scaleX(-1) saat ke kiri & scaleX(1) saat ke kanan
  *    - Dukungan gestur sentuh / drag pada layar HP
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const walker = document.getElementById('sketchCharWalker');
   const charSprite = document.getElementById('sketchCharSprite');
-  const charSpeech = document.getElementById('sketchCharSpeech');
+  const dialogText = document.getElementById('dialogText');
   const corridorTrack = document.getElementById('corridorTrack');
   const corridorViewport = document.getElementById('corridorViewport');
 
@@ -65,14 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let isWalking = false;
   let walkStartTime = 0;
   const MIN_STEP_DURATION = 180; // Durasi minimum 1 langkah saat single tap (ms)
-
-  const dialogues = [
-    "Ayo jelajahi lorong ide & komputasi!",
-    "Banyak objek berterbangan di sekeliling kita!",
-    "Di balik setiap kode ada seni visual yang hidup.",
-    "Melangkah menembus batas teknologi dan seni.",
-    "Terus jalan ke kanan untuk menemukan lebih banyak objek!"
-  ];
 
   // Majukan 1 frame animasi
   function advanceWalkFrame() {
@@ -133,15 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
       corridorTrack.style.transform = `translateX(-${clampedScroll}px)`;
     }
 
-    // Dialog responsif saat karakter berjalan di lorong
-    if (charSpeech) {
-      if (charPixelPos <= 400) {
-        charSpeech.textContent = "Awal perjalanan lorong dimulai di sini!";
-      } else if (charPixelPos >= 3100) {
-        charSpeech.textContent = "Wah, kamu berhasil menelusuri seluruh lorong objek!";
-      } else if (Math.round(charPixelPos) % 350 === 0) {
-        const rand = dialogues[Math.floor(Math.random() * dialogues.length)];
-        charSpeech.textContent = rand;
+    // Dialog responsif saat karakter melewati figura riwayat
+    if (dialogText) {
+      if (charPixelPos >= 700 && charPixelPos <= 1100) {
+        dialogText.textContent = "🎓 Zona Riwayat Pendidikan (SDN Ngaluran & Studi Lanjut)";
+      } else if (charPixelPos >= 1700 && charPixelPos <= 2100) {
+        dialogText.textContent = "💼 Zona Karir & Rekayasa Perangkat Lunak";
+      } else if (charPixelPos >= 2650 && charPixelPos <= 3050) {
+        dialogText.textContent = "🎨 Zona Hobi & Eksplorasi Seni Interaktif";
+      } else if (charPixelPos >= 3150) {
+        dialogText.textContent = "🚀 Ujung lorong! Lanjutkan eksplorasi ke halaman My Work";
+      } else if (charPixelPos <= 450) {
+        dialogText.textContent = "Melangkah menelusuri lorong profil & ide";
       }
     }
   }
@@ -199,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard Controller (Panah Kiri/Kanan & A/D)
   const keysPressed = {};
   window.addEventListener('keydown', (e) => {
-    // Hanya aktif jika sedang berada di sekitar Home 2
     if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
       if (!keysPressed['left']) {
         keysPressed['left'] = true;

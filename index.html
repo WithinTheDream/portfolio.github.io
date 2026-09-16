@@ -65,7 +65,7 @@
 
 
   <!-- =========================================================================
-       HOME (1) SECTION: HERO, 1 FOTO BESAR, & BRANDING PROGRAMMER (NO CHARACTER)
+       HOME (1) SECTION: HERO, 1 FOTO BESAR, & BRANDING PROGRAMMER (TIDAK DIUBAH)
        ========================================================================= -->
   <section class="home-section-hero" id="homeHeroSection">
     <div class="max-w-6xl mx-auto px-6 w-full">
@@ -98,7 +98,7 @@
 
           <!-- Headline Utama B&W -->
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-tight mb-6 font-sans">
-            Membangun sistem komputasi dengan <span class="highlight-pen">keunggulan visual</span>.
+            Selamat datang di <span class="highlight-pen">Website Portofolioku</span>
           </h1>
 
           <!-- Blok Informasi Teks (Tentang Saya / Profil Profesional) -->
@@ -107,14 +107,13 @@
             
             <div class="paper-box p-6 md:p-8 transform -rotate-0.5">
               <div class="flex items-center gap-2 text-ink font-hand text-xl font-bold mb-3 border-b-2 border-dashed border-black pb-2">
-                <i class="fa-solid fa-code"></i>
-                <span>Tentang Saya & Rekayasa Kode</span>
+                <i class="fa-solid fa-quote-left"></i>
+                <span>Tentang saya</span>
               </div>
 
               <!-- Narasi Profil Programmer dengan Nilai Tambah Seni Visual -->
               <p class="font-notes text-lg md:text-xl text-ink leading-relaxed mb-4">
-                Halo! Saya Adam, seorang programmer dan software developer yang memiliki keunggulan mendalam di bidang eksplorasi visual interaktif. 
-                Fokus utama saya adalah membangun arsitektur sistem yang andal, kode yang terstruktur bersih, serta memadukan logika komputasi dengan sentuhan estetika gambar tangan yang otentik.
+                Halo! Saya Adam, seorang programmer sekaligus seniman visual. Saya suka menggabungkan seni tradisional dan digital untuk menciptakan karya yang unik. Di sini, Anda dapat melihat portofolio saya, mulai dari sketsa tangan hingga animasi interaktif.
               </p>
 
               <div class="flex flex-wrap gap-2 pt-2 border-t border-gray-300 text-xs font-sans font-bold">
@@ -129,20 +128,19 @@
           <div class="flex flex-wrap gap-4">
             <a href="#worldSection" class="btn-sketch btn-sketch-primary" id="btnScrollToWorld">
               <i class="fa-solid fa-arrow-down"></i>
-              <span>Profil & Dunia Eksplorasi (Home 2)</span>
+              <span>Profil saya</span>
             </a>
             <a href="work.html" class="btn-sketch">
               <i class="fa-solid fa-arrow-right"></i>
-              <span>Lihat Portofolio Karya</span>
+              <span>Lihat Karyaku</span>
             </a>
           </div>
 
         </div>
 
-        <!-- Kolom Kanan: 1 FOTO TUNGGAL BESAR (Sesuai Permintaan) -->
+        <!-- Kolom Kanan: 1 FOTO TUNGGAL BESAR -->
         <div class="lg:col-span-5 flex flex-col items-center">
           <div class="single-large-photo-card">
-            <!-- Masking Tape di Sudut Kertas Foto -->
             <div class="masking-tape tape-top-left"></div>
             <div class="masking-tape tape-top-right"></div>
 
@@ -160,7 +158,7 @@
       <!-- Scroll Hint ke Home 2 -->
       <div class="flex flex-col items-center mt-16 cursor-pointer" id="scrollIndicator">
         <span class="font-hand text-xl font-bold text-ink animate-bounce">
-          Scroll ke bawah untuk memasuki lorong profil &darr;
+          Scroll ke bawah untuk melihat profil saya &darr;
         </span>
         <div class="w-6 h-10 border-2 border-ink rounded-full flex justify-center pt-2 mt-1 shadow-[2px_2px_0px_#000000]">
           <div class="w-1.5 h-3 bg-ink rounded-full animate-pulse"></div>
@@ -172,20 +170,33 @@
 
 
   <!-- =========================================================================
-       HOME (2) SECTION: LORONG PANJANG OBJEK BERTERBANGAN & CHAR 400% LEBIH BESAR
-       - Background berlanjut mulus dari atas tanpa pembatas
-       - Tanpa garis lantai di bawah
-       - Tanpa tombol jalan kiri/kanan & tanpa teks status posisi
-       - Karakter 400% lebih besar berjalan menembus lorong horizontal panjang
-       - Objek PNG di depan (z-index tinggi) dan di belakang (z-index rendah)
+       HOME (2) SECTION: LORONG PANJANG DENGAN CHAR 400%, FIGURA RIWAYAT,
+       OBJEK TV & KURSI DIPERBESAR, BAYANGAN TEGAS, & UI MINIMALIS KANAN
        ========================================================================= -->
   <section class="home-section-world" id="worldSection">
     
-    <!-- Panduan Interaksi Navigasi Keyboard / Sentuh HP -->
-    <div class="walk-guide-pill">
-      <i class="fa-solid fa-person-walking text-lg"></i>
-      <span>Gunakan tombol <kbd class="px-2 py-0.5 bg-black text-white rounded font-sans text-xs">A</kbd> <kbd class="px-2 py-0.5 bg-black text-white rounded font-sans text-xs">D</kbd> atau Panah <kbd class="px-2 py-0.5 bg-black text-white rounded font-sans text-xs">&larr;</kbd> <kbd class="px-2 py-0.5 bg-black text-white rounded font-sans text-xs">&rarr;</kbd> (geser layar di HP) untuk berjalan menelusuri lorong</span>
-    </div>
+    <!-- UI MINIMALIS DI SEBELAH KANAN LAYAR (MEMANJANG KE BAWAH) -->
+    <aside class="minimal-right-sidebar" aria-label="Quick Corridor Controls">
+      <div class="sidebar-track-icon">
+        <a href="#homeHeroSection" class="sidebar-icon-btn" title="Kembali ke Atas">
+          <i class="fa-solid fa-arrow-up text-xs"></i>
+        </a>
+        <a href="work.html" class="sidebar-icon-btn" title="Buka Halaman Karya">
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Label Vertikal Minimalis -->
+      <div class="sidebar-v-text">
+        <span>CORRIDOR • DISCOVERY</span>
+      </div>
+
+      <!-- Petunjuk Tombol Minimalis -->
+      <div class="sidebar-key-hint" title="Gunakan tombol A/D untuk melangkah">
+        <kbd>A</kbd>
+        <kbd>D</kbd>
+      </div>
+    </aside>
 
     <!-- Viewport Kamera Horizontal untuk Lorong Panjang -->
     <div class="corridor-viewport" id="corridorViewport">
@@ -194,92 +205,131 @@
       <div class="corridor-track" id="corridorTrack">
 
         <!-- ===================================================================
-             LAYER 1: OBJEK-OBJEK DI BELAKANG KARAKTER (z-index: 10)
+             LAYER 1: OBJEK & FIGURA RIWAYAT DI BELAKANG KARAKTER (z-index: 10 & 12)
              =================================================================== -->
         <!-- Cloud di awal lorong -->
         <img src="assets/object/cloud.png" alt="Cloud" class="corridor-object obj-layer-back float-delay-1" 
-             style="left: 120px; top: 30px; width: 220px;">
+             style="left: 100px; top: 40px; width: 230px;">
         
         <!-- Random Shapes Background -->
         <img src="assets/object/randomshape.png" alt="Shape" class="corridor-object obj-layer-back float-delay-2" 
-             style="left: 360px; top: 180px; width: 140px;">
+             style="left: 360px; top: 160px; width: 140px;">
         <img src="assets/object/randomshape2.png" alt="Shape 2" class="corridor-object obj-layer-back float-delay-3" 
-             style="left: 650px; top: 60px; width: 120px;">
-        <img src="assets/object/randomshape3.png" alt="Shape 3" class="corridor-object obj-layer-back float-delay-4" 
-             style="left: 920px; top: 220px; width: 160px;">
+             style="left: 580px; top: 70px; width: 130px;">
 
-        <!-- Buku & Kursi di Belakang -->
+        <!-- 🎓 FIGURA RIWAYAT 1: PENDIDIKAN (Di belakang karakter di lorong) -->
+        <div class="corridor-milestone-frame" style="left: 780px; top: 60px;">
+          <div class="milestone-img-box">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" 
+                 alt="Riwayat Pendidikan">
+          </div>
+          <span class="milestone-tag">Pendidikan</span>
+          <h4 class="milestone-title">Jejak Belajar & Studi</h4>
+          <p class="milestone-desc">
+            Bersekolah di SDN Ngaluran (2012 - 2018), melanjutkan jenjang pendidikan formal hingga mendalami disiplin rekayasa perangkat lunak, algoritma, dan desain sistem komputasi.
+          </p>
+        </div>
+
+        <!-- Buku & Randomshape di Belakang -->
         <img src="assets/object/book.png" alt="Book" class="corridor-object obj-layer-back float-delay-1" 
-             style="left: 1180px; top: 90px; width: 180px;">
-        <img src="assets/object/chair.png" alt="Chair" class="corridor-object obj-layer-back float-delay-2" 
-             style="left: 1420px; top: 160px; width: 210px;">
+             style="left: 1180px; top: 110px; width: 180px;">
         <img src="assets/object/ball.png" alt="Ball" class="corridor-object obj-layer-back float-delay-3" 
-             style="left: 1740px; top: 50px; width: 150px;">
+             style="left: 1420px; top: 50px; width: 150px;">
+        <img src="assets/object/randomshape3.png" alt="Shape 3" class="corridor-object obj-layer-back float-delay-4" 
+             style="left: 1620px; top: 220px; width: 150px;">
 
-        <!-- Duplikasi Shapes & Emote di Belakang Bagian Tengah -->
-        <img src="assets/object/emote.png" alt="Emote" class="corridor-object obj-layer-back float-delay-4" 
-             style="left: 2050px; top: 120px; width: 140px;">
+        <!-- 💼 FIGURA RIWAYAT 2: KARIR & PEKERJAAN (Di belakang karakter di lorong) -->
+        <div class="corridor-milestone-frame" style="left: 1820px; top: 70px;">
+          <div class="milestone-img-box">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" 
+                 alt="Pengalaman Bekerja">
+          </div>
+          <span class="milestone-tag">Karir & Pengalaman</span>
+          <h4 class="milestone-title">Eksplorasi Rekayasa & Kode</h4>
+          <p class="milestone-desc">
+            Bekerja dalam pengembangan perangkat lunak web modern, perancangan antarmuka interaktif, dan arsitektur aplikasi digital yang memadukan kehandalan sistem dengan estetika gambar visual.
+          </p>
+        </div>
+
+        <!-- Emote & Cloud di Belakang -->
+        <img src="assets/object/emote.png" alt="Emote" class="corridor-object obj-layer-back float-delay-2" 
+             style="left: 2230px; top: 130px; width: 140px;">
         <img src="assets/object/cloud.png" alt="Cloud 2" class="corridor-object obj-layer-back float-delay-1" 
-             style="left: 2320px; top: 40px; width: 240px;">
-        <img src="assets/object/randomshape4.png" alt="Shape 4" class="corridor-object obj-layer-back float-delay-2" 
-             style="left: 2650px; top: 200px; width: 150px;">
-        <img src="assets/object/randomshape.png" alt="Shape Duplikat" class="corridor-object obj-layer-back float-delay-3" 
-             style="left: 2980px; top: 70px; width: 160px;">
-        <img src="assets/object/tv.png" alt="TV" class="corridor-object obj-layer-back float-delay-4" 
-             style="left: 3220px; top: 140px; width: 230px;">
+             style="left: 2460px; top: 40px; width: 250px;">
+
+        <!-- 🎨 FIGURA RIWAYAT 3: HOBI & MINAT KREATIF (Di belakang karakter di lorong) -->
+        <div class="corridor-milestone-frame" style="left: 2750px; top: 60px;">
+          <div class="milestone-img-box">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80" 
+                 alt="Hobi & Minat">
+          </div>
+          <span class="milestone-tag">Hobi & Eksplorasi</span>
+          <h4 class="milestone-title">Gambar Sketsa & Coding</h4>
+          <p class="milestone-desc">
+            Hobi: Menggambar sketsa karakter manual, eksperimen creative coding, mengoleksi referensi visual, dan membangun prototipe dunia interaktif yang hidup.
+          </p>
+        </div>
+
+        <!-- Shape & Emote di Akhir Lorong -->
+        <img src="assets/object/randomshape4.png" alt="Shape 4" class="corridor-object obj-layer-back float-delay-3" 
+             style="left: 3160px; top: 190px; width: 160px;">
 
 
         <!-- ===================================================================
-             LAYER 2: KARAKTER 400% LEBIH BESAR (z-index: 20)
-             - Tanpa garis di bawah
-             - Berjalan menelusuri lorong
+             LAYER 2: KARAKTER 400% LEBIH BESAR DENGAN BAYANGAN & UI DIALOG MINIMALIS
+             (z-index: 20)
              =================================================================== -->
         <div class="sketch-char-walker-huge" id="sketchCharWalker" style="left: 250px;">
-          <!-- Balon Percakapan Elegan -->
-          <div class="sketch-speech-bubble" id="sketchCharSpeech">
-            Ayo berjalan menelusuri lorong ide & komputasi!
+          
+          <!-- UI DIALOG KARAKTER BARU (Minimalis Modern Sleek HUD) -->
+          <div class="char-dialog-minimal" id="sketchCharSpeech">
+            <span class="dialog-pulse-dot"></span>
+            <span id="dialogText">Melangkah menelusuri lorong profil & ide</span>
           </div>
           
           <!-- Avatar Karakter 400% Lebih Besar (360px x 440px) -->
           <div class="sketch-char-avatar-huge">
             <img src="assets/char1.png" alt="Karakter Adam Walk Cycle" id="sketchCharSprite">
           </div>
+
+          <!-- Bayangan Lantai Karakter yang Tegas -->
+          <div class="sketch-char-shadow-huge"></div>
         </div>
 
 
         <!-- ===================================================================
              LAYER 3: OBJEK-OBJEK DI DEPAN KARAKTER (z-index: 30)
-             Karakter tampak masuk dan berjalan di antara objek-objek berterbangan
+             - TV DAN KURSI BERUKURAN EKSTRA BESAR (Sesuai Permintaan)
              =================================================================== -->
-        <!-- TV & Bola di Depan Awal Lorong -->
-        <img src="assets/object/tv.png" alt="TV Front" class="corridor-object obj-layer-front float-delay-3" 
-             style="left: 200px; top: 260px; width: 200px;">
+        <!-- TV EKSTRA BESAR di Depan Awal Lorong -->
+        <img src="assets/object/tv.png" alt="TV Huge" class="corridor-object obj-layer-front obj-tv-huge float-delay-3" 
+             style="left: 180px; top: 210px;">
+
         <img src="assets/object/ball.png" alt="Ball Front" class="corridor-object obj-layer-front float-delay-1" 
-             style="left: 480px; top: 320px; width: 130px;">
+             style="left: 520px; top: 310px; width: 140px;">
 
-        <!-- Buku2 & Shape di Depan -->
+        <!-- KURSI EKSTRA BESAR di Depan Lorong -->
+        <img src="assets/object/chair.png" alt="Chair Huge" class="corridor-object obj-layer-front obj-chair-huge float-delay-4" 
+             style="left: 1140px; top: 220px;">
+
         <img src="assets/object/book2.png" alt="Book 2 Front" class="corridor-object obj-layer-front float-delay-2" 
-             style="left: 780px; top: 280px; width: 190px;">
-        <img src="assets/object/randomshape4.png" alt="Shape 4 Front" class="corridor-object obj-layer-front float-delay-4" 
-             style="left: 1060px; top: 340px; width: 140px;">
-        
-        <!-- Cloud & Emote di Depan Bagian Tengah -->
-        <img src="assets/object/cloud.png" alt="Cloud Front" class="corridor-object obj-layer-front float-delay-1" 
-             style="left: 1350px; top: 300px; width: 230px;">
-        <img src="assets/object/emote.png" alt="Emote Front" class="corridor-object obj-layer-front float-delay-3" 
-             style="left: 1650px; top: 260px; width: 150px;">
-        <img src="assets/object/randomshape2.png" alt="Shape 2 Front" class="corridor-object obj-layer-front float-delay-2" 
-             style="left: 1920px; top: 330px; width: 130px;">
+             style="left: 1490px; top: 280px; width: 200px;">
+        <img src="assets/object/randomshape2.png" alt="Shape 2 Front" class="corridor-object obj-layer-front float-delay-1" 
+             style="left: 1720px; top: 330px; width: 140px;">
 
-        <!-- Kursi, Buku & Shapes di Depan Akhir Lorong -->
-        <img src="assets/object/chair.png" alt="Chair Front" class="corridor-object obj-layer-front float-delay-4" 
-             style="left: 2200px; top: 270px; width: 200px;">
-        <img src="assets/object/book.png" alt="Book Front" class="corridor-object obj-layer-front float-delay-1" 
-             style="left: 2520px; top: 320px; width: 170px;">
-        <img src="assets/object/ball.png" alt="Ball Front 2" class="corridor-object obj-layer-front float-delay-2" 
-             style="left: 2820px; top: 290px; width: 140px;">
-        <img src="assets/object/randomshape3.png" alt="Shape 3 Front" class="corridor-object obj-layer-front float-delay-3" 
-             style="left: 3100px; top: 330px; width: 160px;">
+        <!-- TV KEDUA EKSTRA BESAR di Bagian Tengah-Akhir -->
+        <img src="assets/object/tv.png" alt="TV Huge 2" class="corridor-object obj-layer-front obj-tv-huge float-delay-2" 
+             style="left: 2180px; top: 230px;">
+
+        <img src="assets/object/cloud.png" alt="Cloud Front" class="corridor-object obj-layer-front float-delay-3" 
+             style="left: 2540px; top: 290px; width: 240px;">
+
+        <!-- KURSI KEDUA EKSTRA BESAR di Depan Akhir Lorong -->
+        <img src="assets/object/chair.png" alt="Chair Huge 2" class="corridor-object obj-layer-front obj-chair-huge float-delay-1" 
+             style="left: 2980px; top: 210px;">
+
+        <img src="assets/object/randomshape3.png" alt="Shape 3 Front" class="corridor-object obj-layer-front float-delay-4" 
+             style="left: 3260px; top: 320px; width: 170px;">
 
       </div>
 
@@ -287,7 +337,7 @@
 
     <!-- Link Penutup Menuju My Work -->
     <div class="mt-8 text-center z-40">
-      <p class="font-hand text-2xl text-black font-bold mb-3">Ingin melihat karya dan rekayasa proyek yang telah kubangun?</p>
+      <p class="font-hand text-2xl text-black font-bold mb-3">Siap melihat rekayasa proyek perangkat lunak yang telah kubangun?</p>
       <a href="work.html" class="btn-sketch btn-sketch-primary text-xl">
         <span>Kunjungi Halaman My Work</span>
         <i class="fa-solid fa-arrow-right"></i>
@@ -296,11 +346,66 @@
 
   </section>
 
-  <!-- Footer Kertas B&W -->
-  <footer class="py-8 text-center border-t-2 border-dashed border-black bg-white">
-    <p class="font-hand text-lg text-gray-700">
-      &copy; 2026 Adam • Programmer & Creative Developer • All Rights Reserved
-    </p>
+
+  <!-- =========================================================================
+       BLOK FOOTER BARU SOLID ABU-ABU SEPERTI WEB PADA UMUMNYA
+       ========================================================================= -->
+  <footer class="site-footer-solid">
+    <div class="footer-container">
+      
+      <!-- Grid 4 Kolom Footer Standar Profesional -->
+      <div class="footer-top-grid">
+        
+        <!-- Kolom 1: Profil & Brand -->
+        <div class="footer-brand">
+          <h3>Adam</h3>
+          <p>
+            Programmer & Creative Software Developer. Membangun sistem komputasi yang terstruktur bersih dan menggabungkan logika kode dengan seni visual interaktif.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Navigasi Cepat -->
+        <div class="footer-col">
+          <h5>Navigasi</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#worldSection">Profil & Lorong</a></li>
+            <li><a href="work.html">My Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Spesialisasi & Riwayat -->
+        <div class="footer-col">
+          <h5>Spesialisasi</h5>
+          <ul class="footer-links">
+            <li><a href="work.html#projectNgaluran">Platform Edukasi</a></li>
+            <li><a href="work.html#projectPAC">Sistem Organisasi</a></li>
+            <li><a href="work.html#projectSVM">Creative Coding</a></li>
+            <li><a href="index.html">Seni Sketsa B&W</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Hubungi & Lokasi -->
+        <div class="footer-col">
+          <h5>Koneksi</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:halo@portofolio.me">halo@portofolio.me</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="contact.html">Indonesia (WIB)</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Baris Hak Cipta Bawah -->
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 Adam • Programmer & Creative Developer. Seluruh hak cipta dilindungi.</span>
+        <span>Dirancang dengan dedikasi rekayasa perangkat lunak & seni manual.</span>
+      </div>
+
+    </div>
   </footer>
 
   <!-- Script Interaktivitas Halaman Home & Kamera Lorong Panjang -->
