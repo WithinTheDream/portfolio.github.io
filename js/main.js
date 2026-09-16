@@ -129,21 +129,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dialog responsif saat karakter melewati figura riwayat (Minimalist Micro-HUD)
     if (dialogText) {
       if (charPixelPos >= 650 && charPixelPos <= 1100) {
-        dialogText.textContent = "SDN Ngaluran & Studi Lanjut";
+        dialogText.textContent = "Sekolah dasar";
       } else if (charPixelPos >= 1350 && charPixelPos <= 1800) {
-        dialogText.textContent = "Panggung Musik & Eksplorasi Seni Band";
+        dialogText.textContent = "Rindu masa SMP....";
       } else if (charPixelPos >= 2050 && charPixelPos <= 2500) {
-        dialogText.textContent = "Karir Software Dev & Clean Code";
+        dialogText.textContent = "Awal mula minat teknologi & coding";
       } else if (charPixelPos >= 2750 && charPixelPos <= 3200) {
-        dialogText.textContent = "Sketsa Tangan & Creative Coding";
+        dialogText.textContent = "Banyak belajar disini";
       } else if (charPixelPos >= 3350 && charPixelPos <= 3800) {
-        dialogText.textContent = "Ekosistem & Riset Open Source";
+        dialogText.textContent = "Jreng jreng jreng";
       } else if (charPixelPos >= 3950 && charPixelPos <= 4400) {
-        dialogText.textContent = "Visi Inovasi Rekayasa Web";
+        dialogText.textContent = "When yah hiking lagi?";
       } else if (charPixelPos > 4450) {
-        dialogText.textContent = "Tekan untuk melihat projek & portofolio";
+        dialogText.textContent = "Tekan tombolnya untuk berpindah halaman";
       } else if (charPixelPos <= 500) {
-        dialogText.textContent = "Melangkah menelusuri lorong profil";
+        dialogText.textContent = "Teruslah melangkah..";
       }
     }
   }

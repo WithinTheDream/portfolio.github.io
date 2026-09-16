@@ -975,6 +975,63 @@ img {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
 }
 
+/* Gambar Preview Proyek di Card */
+.project-card-image-box {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  margin-bottom: 1.25rem;
+}
+
+.project-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-split-card:hover .project-card-img {
+  transform: scale(1.03);
+}
+
+/* Tombol Aksi di Card Projek (Tanpa border atau shadow) */
+.btn-clean-repo,
+.project-split-card .btn-sketch.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  background: #f3f4f6 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-clean-repo:hover,
+.project-split-card .btn-sketch.btn-sm:hover {
+  background: #e5e7eb !important;
+  color: #000000 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.btn-clean-repo:active,
+.project-split-card .btn-sketch.btn-sm:active {
+  background: #d1d5db !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 /* ==========================================================================
    5. CONTACT (contact.html): TEMA PANORAMA STUDIO KOMUNIKASI & KARAKTER
    ========================================================================== */
