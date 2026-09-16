@@ -231,10 +231,10 @@
             <img src="assets/object/randomshape2.png" alt="Shape" class="w-10 object-contain">
           </div>
 
-          <!-- Karakter Berjalan Diam di Tengah (assets/char1.png) -->
+          <!-- Karakter Stand 4-Frame Skala 300% di Tengah Studio -->
           <div class="contact-center-char-box">
-            <img src="assets/char1.png" alt="Karakter Diam di Tengah Studio" class="contact-center-char-img">
-            <!-- Bayangan Kaki Karakter -->
+            <img src="assets/stand1.png" alt="Karakter Stand Animation Skala 300%" id="contactStandSprite" class="contact-center-char-img">
+            <!-- Bayangan Kaki Karakter Skala Besar -->
             <div class="contact-char-shadow"></div>
           </div>
 
@@ -390,6 +390,29 @@
             }, 2000);
           });
         });
+      }
+
+      // Animasi 4-Frame Karakter Stand (stand1.png - stand4.png)
+      const standSprite = document.getElementById('contactStandSprite');
+      const standFrames = [
+        'assets/stand1.png',
+        'assets/stand2.png',
+        'assets/stand3.png',
+        'assets/stand4.png'
+      ];
+
+      // Preload semua frame stand
+      standFrames.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+
+      let currentStandIdx = 0;
+      if (standSprite) {
+        setInterval(() => {
+          currentStandIdx = (currentStandIdx + 1) % standFrames.length;
+          standSprite.src = standFrames[currentStandIdx];
+        }, 220); // Ritme sketsa halus dan hidup
       }
 
       const quickForm = document.getElementById('contactQuickForm');
