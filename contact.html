@@ -64,113 +64,241 @@
   </nav>
 
   <!-- =========================================================================
-       CONTACT SECTION: CREATIVE TECH STUDIO & DISPATCH DESK (TEMA BARU)
+       CONTACT SECTION: KARAKTER DI TENGAH, OBJEK MELAYANG BERPOLA,
+       CARD SOSMED VERTIKAL DI KIRI & CARD EMAIL DI KANAN
        ========================================================================= -->
-  <main class="contact-studio-wrapper w-full flex-1 flex flex-col justify-center">
+  <main class="contact-universe-wrapper w-full flex-1 flex flex-col justify-center">
     
-    <!-- Kartu Meja Studio Utama -->
-    <div class="studio-main-card">
-      <div class="masking-tape tape-top-left"></div>
-      <div class="masking-tape tape-top-right"></div>
-
-      <!-- Objek Dekorasi Studio Kerja (TV, Kursi, Buku) -->
-      <img src="assets/object/chair.png" alt="Studio Chair" class="studio-object-deco hidden md:block" 
-           style="top: 25px; right: 35px; width: 140px; opacity: 0.85;">
-      <img src="assets/object/tv.png" alt="Studio Monitor" class="studio-object-deco hidden lg:block" 
-           style="bottom: 30px; left: 25px; width: 130px; opacity: 0.85;">
-      <img src="assets/object/book.png" alt="Studio Book" class="studio-object-deco hidden sm:block" 
-           style="top: 30px; left: 35px; width: 110px; opacity: 0.8;">
-
-      <!-- Header Studio -->
-      <header class="text-center max-w-2xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-ink rounded-full font-hand text-lg font-bold shadow-[2px_2px_0px_#000000] mb-4 transform -rotate-1">
-          <span class="w-2.5 h-2.5 bg-black rounded-full animate-pulse"></span>
-          <span>Creative Tech Studio • Communication Desk</span>
-        </div>
-
-        <h1 class="text-3xl md:text-5xl font-extrabold text-ink font-sans mb-3 tracking-tight">
-          Mari Membangun Sesuatu Bersama
-        </h1>
-        
-        <p class="font-notes text-xl text-gray-800">
-          Apakah Anda memiliki ide produk perangkat lunak, kebutuhan website interaktif, atau proyek kreatif? Meja kerja studio ini siap menyambut kolaborasi Anda.
-        </p>
-      </header>
-
-      <!-- Grid Jalur Komunikasi & Sosial Media Terstruktur -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 relative z-10">
-        
-        <!-- Metode 1: GitHub -->
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-method-card">
-          <div class="w-12 h-12 rounded-xl border-2 border-black flex items-center justify-center bg-gray-50 flex-shrink-0">
-            <i class="fa-brands fa-github text-2xl text-black"></i>
-          </div>
-          <div>
-            <span class="font-hand text-xl font-bold text-black block">GitHub</span>
-            <span class="font-sans text-xs text-gray-600 font-semibold block">Source Code & Repos</span>
-          </div>
-        </a>
-
-        <!-- Metode 2: LinkedIn -->
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-method-card">
-          <div class="w-12 h-12 rounded-xl border-2 border-black flex items-center justify-center bg-gray-50 flex-shrink-0">
-            <i class="fa-brands fa-linkedin text-2xl text-black"></i>
-          </div>
-          <div>
-            <span class="font-hand text-xl font-bold text-black block">LinkedIn</span>
-            <span class="font-sans text-xs text-gray-600 font-semibold block">Professional Network</span>
-          </div>
-        </a>
-
-        <!-- Metode 3: Email -->
-        <a href="mailto:halo@portofolio.me" class="contact-method-card">
-          <div class="w-12 h-12 rounded-xl border-2 border-black flex items-center justify-center bg-gray-50 flex-shrink-0">
-            <i class="fa-solid fa-envelope text-xl text-black"></i>
-          </div>
-          <div>
-            <span class="font-hand text-xl font-bold text-black block">Surel / Email</span>
-            <span class="font-sans text-xs text-gray-600 font-semibold block">halo@portofolio.me</span>
-          </div>
-        </a>
-
-        <!-- Metode 4: WhatsApp -->
-        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="contact-method-card">
-          <div class="w-12 h-12 rounded-xl border-2 border-black flex items-center justify-center bg-gray-50 flex-shrink-0">
-            <i class="fa-brands fa-whatsapp text-2xl text-black"></i>
-          </div>
-          <div>
-            <span class="font-hand text-xl font-bold text-black block">WhatsApp</span>
-            <span class="font-sans text-xs text-gray-600 font-semibold block">Diskusi Langsung</span>
-          </div>
-        </a>
-
+    <!-- Header Studio Komunikasi -->
+    <header class="contact-top-header text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eaeaea] rounded-full font-hand text-base font-bold mb-3">
+        <span class="w-2.5 h-2.5 bg-black rounded-full animate-pulse"></span>
+        <span>Creative Tech Studio • Communication Desk</span>
       </div>
 
-      <!-- Kotak Memo Surat & Brief Kolaborasi -->
-      <div class="bg-gray-50 border-2 border-black rounded-xl p-6 md:p-8 shadow-[4px_4px_0px_#000000] relative z-10">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="text-left">
-            <h3 class="font-hand text-2xl font-bold text-ink mb-2">
-              📝 Siap Berbagi Brief atau Ide Proyek?
-            </h3>
-            <p class="font-notes text-lg text-gray-800 leading-relaxed max-w-xl">
-              Kirimkan pesan ke <strong class="text-black underline font-sans">halo@portofolio.me</strong> dengan rincian kebutuhan Anda. Saya terbuka untuk peran Software Engineer, Web Developer, maupun konsultan sistem interaktif.
-            </p>
-            <div class="flex items-center gap-3 mt-3 text-xs font-sans font-bold text-gray-600">
-              <span>📍 Indonesia (WIB)</span>
-              <span>•</span>
-              <span>⏱️ Respon cepat dalam 1x24 jam</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-ink font-sans mb-3 tracking-tight">
+        Hubungi Saya
+      </h1>
+      
+      <p class="font-notes text-xl text-gray-800 max-w-xl mx-auto">
+        Apakah Anda memiliki ide produk perangkat lunak, kebutuhan website interaktif, atau proyek kreatif? Pintu studio ini siap menyambut kolaborasi Anda.
+      </p>
+    </header>
+
+    <!-- Stage Utama: Grid 3 Kolom Responsif -->
+    <div class="contact-stage-grid">
+      
+      <!-- 1. KARTU KIRI TENGAH MEMANJANG KE BAWAH: ICON-ICON SOSIAL MEDIA -->
+      <aside class="w-full flex justify-center lg:justify-end">
+        <div class="contact-social-vertical-card">
+          <div class="masking-tape tape-top-left"></div>
+          
+          <div class="text-center mb-5 pb-3 border-b border-gray-200">
+            <span class="font-hand text-2xl font-bold text-ink block">Jejaring Sosial</span>
+            <span class="font-sans text-[10px] font-bold text-gray-500 uppercase tracking-widest block mt-0.5">Stay Connected</span>
+          </div>
+
+          <!-- Daftar Icon Sosmed Memanjang ke Bawah -->
+          <div class="social-vertical-stack">
+            <!-- Sosmed 1: GitHub -->
+            <a href="https://github.com/WithinTheDream" target="_blank" rel="noopener noreferrer" class="social-item-row" title="GitHub Repository & Profile">
+              <div class="social-icon-box">
+                <i class="fa-brands fa-github text-xl"></i>
+              </div>
+              <div class="social-item-info">
+                <span class="social-name font-hand text-lg font-bold">GitHub</span>
+                <span class="social-handle font-sans text-xs text-gray-500">@WithinTheDream</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
+            </a>
+
+            <!-- Sosmed 2: LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-item-row" title="LinkedIn Professional Network">
+              <div class="social-icon-box">
+                <i class="fa-brands fa-linkedin text-xl"></i>
+              </div>
+              <div class="social-item-info">
+                <span class="social-name font-hand text-lg font-bold">LinkedIn</span>
+                <span class="social-handle font-sans text-xs text-gray-500">Adam</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
+            </a>
+
+            <!-- Sosmed 3: Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-item-row" title="Instagram Creative Profile">
+              <div class="social-icon-box">
+                <i class="fa-brands fa-instagram text-xl"></i>
+              </div>
+              <div class="social-item-info">
+                <span class="social-name font-hand text-lg font-bold">Instagram</span>
+                <span class="social-handle font-sans text-xs text-gray-500">@within_dream</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
+            </a>
+
+            <!-- Sosmed 4: WhatsApp -->
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-item-row" title="WhatsApp Chat Langsung">
+              <div class="social-icon-box">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+              </div>
+              <div class="social-item-info">
+                <span class="social-name font-hand text-lg font-bold">WhatsApp</span>
+                <span class="social-handle font-sans text-xs text-gray-500">Diskusi Cepat</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
+            </a>
+
+            <!-- Sosmed 5: Telegram -->
+            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="social-item-row" title="Telegram Channel / Direct">
+              <div class="social-icon-box">
+                <i class="fa-brands fa-telegram text-xl"></i>
+              </div>
+              <div class="social-item-info">
+                <span class="social-name font-hand text-lg font-bold">Telegram</span>
+                <span class="social-handle font-sans text-xs text-gray-500">@adam_creative</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
+            </a>
+          </div>
+
+          <!-- Status Keaktifan -->
+          <div class="mt-4 pt-3 border-t border-gray-200 text-center">
+            <span class="inline-flex items-center gap-2 text-xs font-sans font-bold text-gray-600">
+              <span class="w-2 h-2 rounded-full bg-black animate-pulse"></span>
+              <span>Online & Responsif</span>
+            </span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 2. STAGE TENGAH: KARAKTER BERJALAN DIAM DI TENGAH DENGAN OBJEK KONTAK MELAYANG BERPOLA -->
+      <section class="contact-center-stage">
+        
+        <!-- Speech Bubble Mini Karakter -->
+        <div class="contact-speech-bubble">
+          <span class="font-hand text-base font-bold text-black">
+            Pilih jalur komunikasi favoritmu! 💬
+          </span>
+          <div class="speech-triangle"></div>
+        </div>
+
+        <!-- Arena Orbit Karakter & Objek Kontak Melayang Berpola -->
+        <div class="contact-orbit-arena">
+          
+          <!-- Node Objek Melayang 1: Mail Envelope Capsule (Kiri Atas) -->
+          <div class="contact-floating-node node-pattern-left-1" title="Surel / Mail">
+            <div class="node-pill">
+              <i class="fa-solid fa-envelope text-base text-black"></i>
+              <span class="font-hand text-sm font-bold text-black">Email</span>
             </div>
           </div>
 
-          <div class="flex-shrink-0">
-            <a href="mailto:halo@portofolio.me" class="btn-sketch btn-sketch-primary text-xl">
-              <span>Kirim Pesan Surel</span>
-              <i class="fa-solid fa-paper-plane text-sm"></i>
-            </a>
+          <!-- Node Objek Melayang 2: Direct Message (Kanan Atas) -->
+          <div class="contact-floating-node node-pattern-right-1" title="Kirim Pesan Langsung">
+            <div class="node-pill">
+              <i class="fa-solid fa-paper-plane text-base text-black"></i>
+              <span class="font-hand text-sm font-bold text-black">Direct Msg</span>
+            </div>
           </div>
+
+          <!-- Node Objek Melayang 3: Chat Emote Doodle (Kiri Tengah) -->
+          <div class="contact-floating-node node-pattern-left-2" title="Emote Doodling">
+            <img src="assets/object/emote.png" alt="Emote" class="w-12 h-12 object-contain filter drop-shadow-md">
+          </div>
+
+          <!-- Node Objek Melayang 4: @ Icon (Kanan Tengah) -->
+          <div class="contact-floating-node node-pattern-right-2" title="Mention @">
+            <div class="node-circle">
+              <i class="fa-solid fa-at text-xl text-black"></i>
+            </div>
+          </div>
+
+          <!-- Node Objek Melayang 5: Cloud Doodle (Kiri Bawah) -->
+          <div class="contact-floating-node node-pattern-left-3" title="Cloud Studio">
+            <img src="assets/object/cloud.png" alt="Cloud" class="w-20 object-contain opacity-85">
+          </div>
+
+          <!-- Node Objek Melayang 6: Halo / Call (Kanan Bawah) -->
+          <div class="contact-floating-node node-pattern-right-3" title="WhatsApp Call">
+            <div class="node-pill">
+              <i class="fa-solid fa-phone text-xs text-black"></i>
+              <span class="font-hand text-sm font-bold text-black">Halo!</span>
+            </div>
+          </div>
+
+          <!-- Node Objek Melayang 7: Shape Sketsa (Tengah Atas) -->
+          <div class="contact-floating-node node-pattern-top" title="Creative Shapes">
+            <img src="assets/object/randomshape2.png" alt="Shape" class="w-10 object-contain">
+          </div>
+
+          <!-- Karakter Berjalan Diam di Tengah (assets/char1.png) -->
+          <div class="contact-center-char-box">
+            <img src="assets/char1.png" alt="Karakter Diam di Tengah Studio" class="contact-center-char-img">
+            <!-- Bayangan Kaki Karakter -->
+            <div class="contact-char-shadow"></div>
+          </div>
+
         </div>
-      </div>
+
+        <!-- Tagline Karakter -->
+        <p class="font-notes text-lg text-gray-700 mt-2 text-center">
+          "Meja kerja dan sketchbook selalu siap untuk kolaborasi berikutnya."
+        </p>
+      </section>
+
+      <!-- 3. KARTU KANAN: CARD UNTUK EMAIL -->
+      <aside class="w-full flex justify-center lg:justify-start">
+        <div class="contact-email-card">
+          <div class="masking-tape tape-top-right"></div>
+
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope-open-text text-xl text-black"></i>
+              <span class="font-hand text-2xl font-bold text-ink">Kirim Surel</span>
+            </div>
+            <span class="px-2.5 py-0.5 bg-black text-white rounded font-mono text-[10px] font-bold">1x24 JAM</span>
+          </div>
+
+          <p class="font-notes text-lg text-gray-800 leading-relaxed mb-4">
+            Kirimkan rincian kebutuhan proyek, penawaran kerja sama, atau pertanyaan langsung ke alamat surel studio:
+          </p>
+
+          <!-- Kotak Highlight Alamat Email & Tombol Salin -->
+          <div class="email-address-box mb-5">
+            <div class="flex items-center justify-between gap-2 p-3 bg-gray-50 rounded-xl border border-gray-200">
+              <div class="flex items-center gap-2 overflow-hidden">
+                <i class="fa-solid fa-envelope text-gray-700 text-sm flex-shrink-0"></i>
+                <span class="font-sans font-bold text-sm text-black truncate" id="studioEmailText">halo@portofolio.me</span>
+              </div>
+              <button type="button" class="copy-email-btn" id="copyEmailBtn" title="Salin Alamat Email">
+                <i class="fa-regular fa-copy text-xs"></i>
+                <span class="text-xs font-bold font-sans" id="copyBtnLabel">Salin</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Formulir Cepat Surel -->
+          <form id="contactQuickForm" class="flex flex-col gap-3">
+            <div>
+              <label class="block font-sans text-xs font-bold text-gray-700 mb-1">Nama / Organisasi</label>
+              <input type="text" id="senderName" required placeholder="Nama Anda / Perusahaan" 
+                     class="sketch-input text-sm">
+            </div>
+            <div>
+              <label class="block font-sans text-xs font-bold text-gray-700 mb-1">Pesan / Brief Proyek</label>
+              <textarea id="senderMessage" rows="3" required placeholder="Ceritakan ringkasan ide atau proyek Anda..." 
+                        class="sketch-input text-sm"></textarea>
+            </div>
+
+            <!-- Tombol Kirim Surel Langsung (Mailto) -->
+            <button type="submit" class="btn-sketch btn-sketch-primary justify-center text-base mt-1">
+              <span>Buka Email & Kirim</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+          </form>
+
+        </div>
+      </aside>
 
     </div>
 
@@ -239,5 +367,43 @@
 
   <!-- Shared Modular Components (Navbar & Footer Synchronization) -->
   <script src="js/components.js"></script>
+
+  <!-- Interaktivitas Contact: Salin Email & Mailto Form Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyBtn = document.getElementById('copyEmailBtn');
+      const copyLabel = document.getElementById('copyBtnLabel');
+      const emailText = document.getElementById('studioEmailText');
+
+      if (copyBtn && emailText) {
+        copyBtn.addEventListener('click', () => {
+          const email = emailText.textContent.trim();
+          navigator.clipboard.writeText(email).then(() => {
+            copyLabel.textContent = 'Tersalin!';
+            setTimeout(() => {
+              copyLabel.textContent = 'Salin';
+            }, 2000);
+          }).catch(() => {
+            copyLabel.textContent = 'Tersalin!';
+            setTimeout(() => {
+              copyLabel.textContent = 'Salin';
+            }, 2000);
+          });
+        });
+      }
+
+      const quickForm = document.getElementById('contactQuickForm');
+      if (quickForm) {
+        quickForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('senderName').value.trim();
+          const message = document.getElementById('senderMessage').value.trim();
+          const subject = encodeURIComponent(`Brief Kolaborasi dari ${name}`);
+          const body = encodeURIComponent(`Halo Adam,\n\nNama / Organisasi: ${name}\n\nPesan / Kebutuhan Proyek:\n${message}\n\nSalam,\n${name}`);
+          window.location.href = `mailto:halo@portofolio.me?subject=${subject}&body=${body}`;
+        });
+      }
+    });
+  </script>
 </body>
 </html>

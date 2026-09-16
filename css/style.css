@@ -897,73 +897,394 @@ img {
 }
 
 /* ==========================================================================
-   5. CONTACT (contact.html): TEMA STUDIO KERJA CREATIVE TECH
+   5. CONTACT (contact.html): TEMA PANORAMA STUDIO KOMUNIKASI & KARAKTER
    ========================================================================== */
-.contact-studio-wrapper {
-  max-width: 960px;
+.contact-universe-wrapper {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 120px 20px 80px;
+  padding: 110px 24px 70px;
   position: relative;
   z-index: 10;
 }
 
-.studio-main-card {
+.contact-top-header {
+  margin-bottom: 36px;
+}
+
+.contact-stage-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .contact-stage-grid {
+    display: grid;
+    grid-template-columns: 290px 1fr 340px;
+    align-items: center;
+    gap: 28px;
+  }
+}
+
+/* 1. KARTU KIRI: SOSMED VERTIKAL MEMANJANG KE BAWAH */
+.contact-social-vertical-card {
   background: #ffffff;
-  border: 3px solid #000000;
+  border: none !important;
   border-radius: 20px;
-  box-shadow: var(--shadow-sketch-lg);
-  padding: 48px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  padding: 30px 20px;
   position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.studio-object-deco {
-  position: absolute;
-  pointer-events: none;
-  z-index: 5;
-  filter: none;
+.contact-social-vertical-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
 }
 
-.contact-method-card {
+.social-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-item-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 18px 24px;
-  background: #ffffff;
-  border: 2.5px solid #000000;
-  border-radius: 14px;
-  box-shadow: var(--shadow-sketch);
+  gap: 14px;
+  padding: 12px 14px;
+  background: #fbfbfb;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
   text-decoration: none;
   color: #000000;
+  transition: all 0.2s ease;
+}
+
+.social-item-row:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transform: translateX(4px);
+}
+
+.social-item-row:hover .social-handle,
+.social-item-row:hover .social-arrow {
+  color: #ffffff;
+}
+
+.social-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #e2e2e2;
+  transition: all 0.2s ease;
+}
+
+.social-item-row:hover .social-icon-box {
+  background: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+.social-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.social-name {
+  display: block;
+  line-height: 1.2;
+}
+
+.social-handle {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.social-arrow {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-item-row:hover .social-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* 2. STAGE TENGAH: KARAKTER BERDIRI DIAM & OBJEK KONTAK MELAYANG BERPOLA */
+.contact-center-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.contact-speech-bubble {
+  position: relative;
+  background: #ffffff;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+  z-index: 25;
+}
+
+.speech-triangle {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ffffff;
+}
+
+.contact-orbit-arena {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-center-char-box {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-center-char-img {
+  height: 240px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+  user-select: none;
+}
+
+.contact-char-shadow {
+  width: 150px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  filter: blur(5px);
+  margin-top: -10px;
+}
+
+/* Objek-Objek Kontak Melayang dengan Pola Gerak Terkoordinasi */
+.contact-floating-node {
+  position: absolute;
+  pointer-events: auto;
+  z-index: 22;
+  user-select: none;
+  cursor: default;
+}
+
+.node-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.node-pill:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.node-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.node-circle:hover {
+  transform: scale(1.1);
+}
+
+/* Keyframes Pola Gerak Sisi Kiri dan Kanan */
+@keyframes patternOrbitLeft1 {
+  0% { transform: translate(0, 0) rotate(-4deg); }
+  50% { transform: translate(-22px, -24px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(-4deg); }
+}
+
+@keyframes patternOrbitRight1 {
+  0% { transform: translate(0, 0) rotate(4deg); }
+  50% { transform: translate(22px, -20px) rotate(-4deg); }
+  100% { transform: translate(0, 0) rotate(4deg); }
+}
+
+@keyframes patternOrbitLeft2 {
+  0% { transform: translate(0, 0) rotate(2deg); }
+  50% { transform: translate(-18px, 20px) rotate(-6deg); }
+  100% { transform: translate(0, 0) rotate(2deg); }
+}
+
+@keyframes patternOrbitRight2 {
+  0% { transform: translate(0, 0) rotate(-3deg); }
+  50% { transform: translate(18px, 22px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(-3deg); }
+}
+
+@keyframes patternOrbitLeft3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-14px, -16px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes patternOrbitTop {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(8deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.node-pattern-left-1 {
+  top: 30px;
+  left: 15px;
+  animation: patternOrbitLeft1 4.6s ease-in-out infinite alternate;
+}
+
+.node-pattern-right-1 {
+  top: 45px;
+  right: 10px;
+  animation: patternOrbitRight1 4.8s ease-in-out infinite alternate 0.4s;
+}
+
+.node-pattern-left-2 {
+  top: 155px;
+  left: 5px;
+  animation: patternOrbitLeft2 5.2s ease-in-out infinite alternate 0.8s;
+}
+
+.node-pattern-right-2 {
+  top: 175px;
+  right: 15px;
+  animation: patternOrbitRight2 5.0s ease-in-out infinite alternate 1.2s;
+}
+
+.node-pattern-left-3 {
+  bottom: 35px;
+  left: 10px;
+  animation: patternOrbitLeft3 5.5s ease-in-out infinite alternate 0.6s;
+}
+
+.node-pattern-right-3 {
+  bottom: 40px;
+  right: 10px;
+  animation: patternOrbitRight1 4.4s ease-in-out infinite alternate 1.6s;
+}
+
+.node-pattern-top {
+  top: 0px;
+  left: 50%;
+  margin-left: -20px;
+  animation: patternOrbitTop 4.2s ease-in-out infinite alternate 0.5s;
+}
+
+/* 3. KARTU KANAN: CARD UNTUK EMAIL */
+.contact-email-card {
+  background: #ffffff;
+  border: none !important;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  padding: 32px 24px;
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-email-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+}
+
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   transition: all 0.15s ease;
 }
 
-.contact-method-card:hover {
-  background: #000000;
-  color: #ffffff;
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sketch-lg);
+.copy-email-btn:hover {
+  background: #333333;
+  transform: scale(1.04);
 }
 
-.contact-method-card:hover i,
-.contact-method-card:hover span {
-  color: #ffffff !important;
+.sketch-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: #fbfbfb;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #000000;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sketch-input:focus {
+  border-color: #000000;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 /* ==========================================================================
-   BARISAN OBJEK PNG BERJEJERAN MELAYANG DI ATAS FOOTER (MY WORK)
+   OBJEK-OBJEK ACAK-ACAKAN MELAYANG DI ATAS & MENEMBUS FOOTER (MY WORK)
    ========================================================================== */
 .work-footer-objects-shelf {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 10px 16px 36px;
+  margin-bottom: -55px; /* Dekat & sebagian kepotong/tertutup oleh blok footer solid */
+  padding: 0 16px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: clamp(12px, 2.5vw, 36px);
+  align-items: center;
   flex-wrap: wrap;
-  z-index: 45;
+  gap: 8px 24px;
+  z-index: 55; /* Di bawah footer (z-index 60) */
   pointer-events: none;
 }
 
@@ -975,10 +1296,26 @@ img {
   pointer-events: none;
 }
 
+/* Scatter Classes untuk Efek Acak-Acakan Organik */
+.obj-scatter-1 { transform: translateY(-44px) rotate(-14deg); margin: 0 -8px; }
+.obj-scatter-2 { transform: translateY(38px) rotate(16deg); margin: 0 -6px; }
+.obj-scatter-3 { transform: translateY(-56px) rotate(-8deg); margin: 0 -12px; }
+.obj-scatter-4 { transform: translateY(48px) rotate(22deg); margin: 0 -8px; }
+.obj-scatter-5 { transform: translateY(-24px) rotate(-18deg); margin: 0 -10px; }
+.obj-scatter-6 { transform: translateY(36px) rotate(10deg); margin: 0 -6px; }
+.obj-scatter-7 { transform: translateY(-48px) rotate(26deg); margin: 0 -14px; }
+.obj-scatter-8 { transform: translateY(24px) rotate(-12deg); margin: 0 -8px; }
+.obj-scatter-9 { transform: translateY(-36px) rotate(15deg); margin: 0 -10px; }
+.obj-scatter-10 { transform: translateY(54px) rotate(-16deg); margin: 0 -6px; }
+.obj-scatter-11 { transform: translateY(-18px) rotate(12deg); margin: 0 -8px; }
+.obj-scatter-12 { transform: translateY(42px) rotate(-22deg); margin: 0 -10px; }
+.obj-scatter-13 { transform: translateY(-50px) rotate(8deg); margin: 0 -6px; }
+.obj-scatter-14 { transform: translateY(30px) rotate(-10deg); margin: 0 -8px; }
+
 .shelf-obj-img {
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.12));
 }
 
 @keyframes shelfFloatSlow {
