@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = src;
   });
 
-  // Dimensi lorong panjang
-  let charPixelPos = 240; // Posisi awal karakter di lorong (pixel)
+  // Dimensi lorong panjang (5100px)
+  let charPixelPos = 250; // Posisi istirahat awal karakter di lorong (pixel)
   const minPixelPos = 120;
-  const maxPixelPos = 3380; // Panjang lintasan lorong
+  const maxPixelPos = 4920; // Panjang lintasan lorong yang diperluas
   const stepPixels = 6.5; // Langkah per interval
 
   let moveInterval = null;
@@ -120,13 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (corridorTrack && corridorViewport) {
       const viewportWidth = corridorViewport.clientWidth;
       const targetScroll = charPixelPos - (viewportWidth / 2);
-      const maxScroll = 3500 - viewportWidth;
+      const maxScroll = 5100 - viewportWidth;
       const clampedScroll = Math.max(0, Math.min(maxScroll, targetScroll));
       
       corridorTrack.style.transform = `translateX(-${clampedScroll}px)`;
     }
 
-    // Dialog responsif saat karakter melewati figura riwayat
+    // Dialog responsif saat karakter melewati 6 figura riwayat
     if (dialogText) {
       if (charPixelPos >= 650 && charPixelPos <= 1100) {
         dialogText.textContent = "🎓 Zona Riwayat Pendidikan (SDN Ngaluran & Studi Lanjut)";
@@ -134,10 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
         dialogText.textContent = "🎤 Zona Panggung Musik & Eksplorasi Seni Band";
       } else if (charPixelPos >= 2050 && charPixelPos <= 2500) {
         dialogText.textContent = "💼 Zona Karir Rekayasa Software & Clean Code";
-      } else if (charPixelPos >= 2750 && charPixelPos <= 3150) {
+      } else if (charPixelPos >= 2780 && charPixelPos <= 3250) {
         dialogText.textContent = "🎨 Zona Coretan Sketsa Tangan & Creative Coding";
-      } else if (charPixelPos > 3150) {
-        dialogText.textContent = "🚀 Ujung lorong! Lanjutkan eksplorasi ke halaman My Work";
+      } else if (charPixelPos >= 3550 && charPixelPos <= 3980) {
+        dialogText.textContent = "🏆 Zona Prestasi, Hackathon & Kolaborasi Rekayasa";
+      } else if (charPixelPos >= 4250 && charPixelPos <= 4680) {
+        dialogText.textContent = "🔮 Zona Visi Masa Depan & Studio Riset Kreatif";
+      } else if (charPixelPos > 4700) {
+        dialogText.textContent = "🚀 Ujung lorong! Terima kasih telah menjelajahi perjalananku";
       } else if (charPixelPos <= 500) {
         dialogText.textContent = "Melangkah menelusuri lorong profil & ide";
       }
@@ -290,6 +294,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // Inisialisasi posisi awal karakter
-  updateCharacterPosition(charPixelPos, 'right');
+  // =========================================================================
+  // ANIMASI MASUK: OBJEK LORONG & KARAKTER BERJALAN DARI KIRI LAYAR KE POSISI AWAL
+  // =========================================================================
+  let hasTriggeredEntrance = false;
+  function triggerCharacterEntrance() {
+    if (hasTriggeredEntrance) return;
+    hasTriggeredEntrance = true;
+
+    // Aktifkan animasi masuk objek lorong
+    if (corridorTrack) {
+      corridorTrack.classList.add('loaded');
+    }
+
+    // Karakter melangkah masuk dari luar layar kiri (-180px) menuju posisi 250px
+    let entrancePos = -180;
+    const targetPos = 250;
+    charPixelPos = entrancePos;
+    updateCharacterPosition(entrancePos, 'right');
+
+    isWalking = true;
+    if (walker) walker.classList.add('walking');
+    startWalkCycleAnimation();
+
+    const entranceInterval = setInterval(() => {
+      // Jika user sudah mengambil alih kendali (menekan tombol), hentikan auto-walk
+      if (keysPressed['left'] || keysPressed['right']) {
+        clearInterval(entranceInterval);
+        return;
+      }
+
+      entrancePos += 7.5;
+      if (entrancePos >= targetPos) {
+        entrancePos = targetPos;
+        updateCharacterPosition(entrancePos, 'right');
+        clearInterval(entranceInterval);
+        isWalking = false;
+        stopWalkCycleAnimation();
+      } else {
+        updateCharacterPosition(entrancePos, 'right');
+      }
+    }, 20);
+  }
+
+  // Picu saat halaman load jika posisi scroll sudah di worldSection, atau saat di-scroll
+  if ('IntersectionObserver' in window && worldSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          triggerCharacterEntrance();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.12 });
+    observer.observe(worldSection);
+  } else {
+    setTimeout(triggerCharacterEntrance, 400);
+  }
 });
