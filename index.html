@@ -38,6 +38,23 @@
 </head>
 <body class="bg-paper text-ink selection:bg-black selection:text-white">
 
+  <!-- Preloader Halaman: Memuat Seluruh Gambar & Animasi Terlebih Dahulu -->
+  <div id="paperPreloader" class="paper-preloader" aria-label="Loading Website Assets">
+    <div class="preloader-content">
+      <div class="preloader-sprite-box">
+        <img id="preloaderSprite" src="assets/1.png" alt="Loading Character" class="preloader-sprite-img">
+      </div>
+      <h3 class="preloader-title font-hand">Memuat Lembaran Sketsa...</h3>
+      <div class="preloader-bar-track">
+        <div id="preloaderBar" class="preloader-bar-fill"></div>
+      </div>
+      <div class="preloader-meta font-mono">
+        <span id="preloaderPercent">0%</span>
+        <span id="preloaderStatus">Memuat aset visual...</span>
+      </div>
+    </div>
+  </div>
+
   <!-- =========================================================================
        1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
        ========================================================================= -->
@@ -550,7 +567,7 @@
           <ul class="footer-links">
             <li><a href="mailto:halo@portofolio.me">halo@portofolio.me</a></li>
             <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-darmawan-a36118349/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="contact.html">Indonesia (WIB)</a></li>
           </ul>
         </div>

@@ -1738,3 +1738,91 @@ img {
   }
 }
 
+/* ==========================================================================
+   PRELOADER HALAMAN (B&W Paper Sketch Aesthetic)
+   ========================================================================== */
+.paper-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+  user-select: none;
+}
+
+.paper-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.preloader-sprite-box {
+  width: 90px;
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.preloader-sprite-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.preloader-title {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.preloader-bar-track {
+  width: 240px;
+  max-width: 75vw;
+  height: 8px;
+  background: #f0f0f0;
+  border: 1.5px solid #000000;
+  border-radius: 9999px;
+  padding: 1px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: #000000;
+  border-radius: 9999px;
+  transition: width 0.12s ease-out;
+}
+
+.preloader-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+  max-width: 75vw;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+

@@ -6,6 +6,9 @@
  */
 
 function initSharedComponents() {
+  // 0. Jalankan Preloader Gambar di Awal
+  initImagePreloader();
+
   const currentPath = window.location.pathname.toLowerCase();
   let activePage = 'home';
   if (currentPath.includes('work.html')) {
@@ -84,9 +87,9 @@ function initSharedComponents() {
           <h5>Terhubung</h5>
           <ul class="footer-links">
             <li><a href="https://github.com/WithinTheDream" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></li>
-            <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-darmawan-a36118349/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
             <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Kirim Pesan</a></li>
-            <li><a href="mailto:adam@example.com"><i class="fa-solid fa-envelope"></i> Surel Langsung</a></li>
+            <li><a href="mailto:adamdaemawan@gmail.com"><i class="fa-solid fa-envelope"></i> Surel Langsung</a></li>
           </ul>
         </div>
       </div>
@@ -210,6 +213,114 @@ function initGlobalMusic() {
   if (sessionStorage.getItem('bgm_playing') === 'true' && !isExplicitlyMuted) {
     playMusic();
   }
+}
+
+/**
+ * Preloader Gambar & Aset Visual di Awal Pemuatan Halaman
+ */
+function initImagePreloader() {
+  let preloader = document.getElementById('paperPreloader');
+  if (!preloader) {
+    preloader = document.createElement('div');
+    preloader.id = 'paperPreloader';
+    preloader.className = 'paper-preloader';
+    preloader.setAttribute('aria-label', 'Loading Website Assets');
+    preloader.innerHTML = `
+      <div class="preloader-content">
+        <div class="preloader-sprite-box">
+          <img id="preloaderSprite" src="assets/1.png" alt="Loading Character" class="preloader-sprite-img">
+        </div>
+        <h3 class="preloader-title">Memuat Lembaran Sketsa...</h3>
+        <div class="preloader-bar-track">
+          <div id="preloaderBar" class="preloader-bar-fill"></div>
+        </div>
+        <div class="preloader-meta">
+          <span id="preloaderPercent">0%</span>
+          <span id="preloaderStatus">Memuat aset visual...</span>
+        </div>
+      </div>`;
+    document.body.prepend(preloader);
+  }
+
+  const progressBar = document.getElementById('preloaderBar');
+  const progressPercent = document.getElementById('preloaderPercent');
+  const preloaderStatus = document.getElementById('preloaderStatus');
+  const spritePreview = document.getElementById('preloaderSprite');
+
+  // Kumpulan sprite animasi dinamis website
+  const coreSprites = [
+    'assets/1.png', 'assets/2.png', 'assets/3.png', 'assets/4.png',
+    'assets/fallB1.png', 'assets/fallB2.png', 'assets/fallB3.png', 'assets/fallB4.png', 'assets/fallB5.png', 'assets/fallB6.png',
+    'assets/stand1.png', 'assets/stand2.png', 'assets/stand3.png', 'assets/stand4.png'
+  ];
+
+  // Kumpulkan semua gambar dari dokumen DOM
+  const domImages = Array.from(document.querySelectorAll('img'))
+    .map(img => img.getAttribute('src') || img.src)
+    .filter(src => src && !src.startsWith('data:'));
+
+  // Hilangkan duplikasi URL gambar
+  const allImageUrls = Array.from(new Set([...coreSprites, ...domImages]));
+  const total = allImageUrls.length;
+
+  let loaded = 0;
+  let isFinished = false;
+
+  // Animasi sprite mini berjalan di preloader saat loading
+  let spriteIdx = 1;
+  const spriteInterval = setInterval(() => {
+    if (spritePreview && !isFinished) {
+      spriteIdx = (spriteIdx % 4) + 1;
+      spritePreview.src = `assets/${spriteIdx}.png`;
+    }
+  }, 160);
+
+  function finishLoading() {
+    if (isFinished) return;
+    isFinished = true;
+    clearInterval(spriteInterval);
+
+    if (progressBar) progressBar.style.width = '100%';
+    if (progressPercent) progressPercent.textContent = '100%';
+    if (preloaderStatus) preloaderStatus.textContent = 'Siap!';
+
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.remove();
+        document.body.classList.add('page-loaded');
+        window.dispatchEvent(new Event('portfolio:loaded'));
+      }, 480);
+    }, 280);
+  }
+
+  // Safety fallback timeout (maks 3.5 detik)
+  const safetyTimeout = setTimeout(finishLoading, 3500);
+
+  function updateProgress() {
+    loaded++;
+    const percent = Math.min(100, Math.floor((loaded / total) * 100));
+    if (progressBar) progressBar.style.width = `${percent}%`;
+    if (progressPercent) progressPercent.textContent = `${percent}%`;
+
+    if (loaded >= total) {
+      clearTimeout(safetyTimeout);
+      finishLoading();
+    }
+  }
+
+  if (total === 0) {
+    finishLoading();
+    return;
+  }
+
+  // Memuat setiap aset secara paralel
+  allImageUrls.forEach(url => {
+    const img = new Image();
+    img.onload = updateProgress;
+    img.onerror = updateProgress;
+    img.src = url;
+  });
 }
 
 if (document.readyState === 'loading') {

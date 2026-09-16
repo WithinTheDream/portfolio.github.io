@@ -38,6 +38,23 @@
 </head>
 <body class="bg-paper text-ink selection:bg-black selection:text-white">
 
+  <!-- Preloader Halaman: Memuat Seluruh Gambar & Animasi Terlebih Dahulu -->
+  <div id="paperPreloader" class="paper-preloader" aria-label="Loading Website Assets">
+    <div class="preloader-content">
+      <div class="preloader-sprite-box">
+        <img id="preloaderSprite" src="assets/1.png" alt="Loading Character" class="preloader-sprite-img">
+      </div>
+      <h3 class="preloader-title font-hand">Memuat Lembaran Sketsa...</h3>
+      <div class="preloader-bar-track">
+        <div id="preloaderBar" class="preloader-bar-fill"></div>
+      </div>
+      <div class="preloader-meta font-mono">
+        <span id="preloaderPercent">0%</span>
+        <span id="preloaderStatus">Memuat aset visual...</span>
+      </div>
+    </div>
+  </div>
+
   <!-- =========================================================================
        1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
        ========================================================================= -->
@@ -231,7 +248,7 @@
             <!-- Tombol Repo GitHub Proyek -->
             <div class="mt-5 pt-4 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3">
               <span class="font-sans text-xs font-semibold text-gray-500">Repository & Sumber Kode</span>
-              <a href="https://github.com/WithinTheDream" target="_blank" class="btn-clean-repo" title="Buka Repository di GitHub">
+              <a href="https://github.com/WithinTheDream/PACfatayatNU" target="_blank" class="btn-clean-repo" title="Buka Repository di GitHub">
                 <i class="fa-brands fa-github text-base"></i>
                 <span>Repository GitHub</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
@@ -272,7 +289,7 @@
             <!-- Tombol Repo GitHub Proyek -->
             <div class="mt-5 pt-4 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3">
               <span class="font-sans text-xs font-semibold text-gray-500">Repository & Sumber Kode</span>
-              <a href="https://github.com/WithinTheDream" target="_blank" class="btn-clean-repo" title="Buka Repository di GitHub">
+              <a href="https://github.com/WithinTheDream/ASLSVM" target="_blank" class="btn-clean-repo" title="Buka Repository di GitHub">
                 <i class="fa-brands fa-github text-base"></i>
                 <span>Repository GitHub</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
@@ -314,7 +331,7 @@
             <div class="mt-5 pt-4 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3">
               <span class="font-sans text-xs font-semibold text-gray-500">Aplikasi & Sumber Kode</span>
               <div class="flex flex-wrap items-center gap-2">
-                <a href="https://play.google.com/store/apps" target="_blank" class="btn-clean-repo" title="Lihat di Play Store">
+                <a href="https://play.google.com/store/apps/details?id=com.gutalo.tas&pcampaignid=web_share" target="_blank" class="btn-clean-repo" title="Lihat di Play Store">
                   <i class="fa-brands fa-google-play text-base"></i>
                   <span>Lihat di PlayStore</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
@@ -354,21 +371,6 @@
             <p class="font-notes text-xl text-ink leading-relaxed mb-5">
               Pusat resmi repositori kode terbuka dan rekayasa perangkat lunak saya. Jelajahi kumpulan script algoritma, template interaktif, rancangan web eksperimental, dan kontribusi komunitas di GitHub.
             </p>
-
-            <div class="grid grid-cols-3 gap-2 p-3 bg-gray-50 rounded-xl text-center mb-5 font-sans">
-              <div class="p-2 border border-gray-200 rounded-lg bg-white">
-                <span class="block text-xl font-extrabold text-black">100%</span>
-                <span class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Open Source</span>
-              </div>
-              <div class="p-2 border border-gray-200 rounded-lg bg-white">
-                <span class="block text-xl font-extrabold text-black">Active</span>
-                <span class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Git Workflow</span>
-              </div>
-              <div class="p-2 border border-gray-200 rounded-lg bg-white">
-                <span class="block text-xl font-extrabold text-black">Modern</span>
-                <span class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">Tech Stack</span>
-              </div>
-            </div>
 
             <div class="flex flex-wrap gap-2 mb-6">
               <span class="px-3 py-1 bg-white border border-gray-300 rounded-lg font-hand text-base font-bold shadow-sm">TypeScript</span>
@@ -499,9 +501,9 @@
           <h5>Terhubung</h5>
           <ul class="footer-links">
             <li><a href="https://github.com/WithinTheDream" target="_blank"><i class="fa-brands fa-github"></i> GitHub Profile</a></li>
-            <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-darmawan-a36118349/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
             <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Kirim Pesan</a></li>
-            <li><a href="mailto:adam@example.com"><i class="fa-solid fa-envelope"></i> Surel Langsung</a></li>
+            <li><a href="mailto:adamdaemawan@gmail.com"><i class="fa-solid fa-envelope"></i> Surel Langsung</a></li>
           </ul>
         </div>
       </div>

@@ -38,6 +38,23 @@
 </head>
 <body class="bg-paper text-ink selection:bg-black selection:text-white min-h-screen flex flex-col justify-between">
 
+  <!-- Preloader Halaman: Memuat Seluruh Gambar & Animasi Terlebih Dahulu -->
+  <div id="paperPreloader" class="paper-preloader" aria-label="Loading Website Assets">
+    <div class="preloader-content">
+      <div class="preloader-sprite-box">
+        <img id="preloaderSprite" src="assets/1.png" alt="Loading Character" class="preloader-sprite-img">
+      </div>
+      <h3 class="preloader-title font-hand">Memuat Lembaran Sketsa...</h3>
+      <div class="preloader-bar-track">
+        <div id="preloaderBar" class="preloader-bar-fill"></div>
+      </div>
+      <div class="preloader-meta font-mono">
+        <span id="preloaderPercent">0%</span>
+        <span id="preloaderStatus">Memuat aset visual...</span>
+      </div>
+    </div>
+  </div>
+
   <!-- =========================================================================
        1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
        ========================================================================= -->
@@ -71,10 +88,6 @@
     
     <!-- Header Studio Komunikasi -->
     <header class="contact-top-header text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eaeaea] rounded-full font-hand text-base font-bold mb-3">
-        <span class="w-2.5 h-2.5 bg-black rounded-full animate-pulse"></span>
-        <span>Creative Tech Studio • Communication Desk</span>
-      </div>
 
       <h1 class="text-3xl md:text-5xl font-extrabold text-ink font-sans mb-3 tracking-tight">
         Hubungi Saya
@@ -113,7 +126,7 @@
             </a>
 
             <!-- Sosmed 2: LinkedIn -->
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-item-row" title="LinkedIn Professional Network">
+            <a href="https://www.linkedin.com/in/adam-darmawan-a36118349/" target="_blank" rel="noopener noreferrer" class="social-item-row" title="LinkedIn Professional Network">
               <div class="social-icon-box">
                 <i class="fa-brands fa-linkedin text-xl"></i>
               </div>
@@ -125,37 +138,25 @@
             </a>
 
             <!-- Sosmed 3: Instagram -->
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-item-row" title="Instagram Creative Profile">
+            <a href="https://www.instagram.com/nneroine/" target="_blank" rel="noopener noreferrer" class="social-item-row" title="Instagram Creative Profile">
               <div class="social-icon-box">
                 <i class="fa-brands fa-instagram text-xl"></i>
               </div>
               <div class="social-item-info">
                 <span class="social-name font-hand text-lg font-bold">Instagram</span>
-                <span class="social-handle font-sans text-xs text-gray-500">@within_dream</span>
+                <span class="social-handle font-sans text-xs text-gray-500">@nneroine</span>
               </div>
               <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
             </a>
 
             <!-- Sosmed 4: WhatsApp -->
-            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-item-row" title="WhatsApp Chat Langsung">
+            <a href="https://wa.me/6289681560551" target="_blank" rel="noopener noreferrer" class="social-item-row" title="WhatsApp Chat Langsung">
               <div class="social-icon-box">
                 <i class="fa-brands fa-whatsapp text-xl"></i>
               </div>
               <div class="social-item-info">
                 <span class="social-name font-hand text-lg font-bold">WhatsApp</span>
                 <span class="social-handle font-sans text-xs text-gray-500">Diskusi Cepat</span>
-              </div>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
-            </a>
-
-            <!-- Sosmed 5: Telegram -->
-            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="social-item-row" title="Telegram Channel / Direct">
-              <div class="social-icon-box">
-                <i class="fa-brands fa-telegram text-xl"></i>
-              </div>
-              <div class="social-item-info">
-                <span class="social-name font-hand text-lg font-bold">Telegram</span>
-                <span class="social-handle font-sans text-xs text-gray-500">@adam_creative</span>
               </div>
               <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 social-arrow"></i>
             </a>
@@ -240,10 +241,6 @@
 
         </div>
 
-        <!-- Tagline Karakter -->
-        <p class="font-notes text-lg text-gray-700 mt-2 text-center">
-          "Meja kerja dan sketchbook selalu siap untuk kolaborasi berikutnya."
-        </p>
       </section>
 
       <!-- 3. KARTU KANAN: CARD UNTUK EMAIL -->
@@ -268,7 +265,7 @@
             <div class="flex items-center justify-between gap-2 p-3 bg-gray-50 rounded-xl border border-gray-200">
               <div class="flex items-center gap-2 overflow-hidden">
                 <i class="fa-solid fa-envelope text-gray-700 text-sm flex-shrink-0"></i>
-                <span class="font-sans font-bold text-sm text-black truncate" id="studioEmailText">halo@portofolio.me</span>
+                <span class="font-sans font-bold text-sm text-black truncate" id="studioEmailText">adamdaemawan@gmail.com</span>
               </div>
               <button type="button" class="copy-email-btn" id="copyEmailBtn" title="Salin Alamat Email">
                 <i class="fa-regular fa-copy text-xs"></i>
@@ -346,7 +343,7 @@
             <li><a href="https://github.com/WithinTheDream" target="_blank"><i class="fa-brands fa-github"></i> GitHub Profile</a></li>
             <li><a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
             <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Kirim Pesan</a></li>
-            <li><a href="mailto:halo@portofolio.me"><i class="fa-solid fa-envelope"></i> Surel Langsung</a></li>
+            <li><a href="mailto:adamdaemawan@gmail.com"><i class="fa-solid fa-envelope"></i> Surel Langsung</a></li>
           </ul>
         </div>
       </div>
