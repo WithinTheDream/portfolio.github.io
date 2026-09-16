@@ -228,7 +228,7 @@ function initImagePreloader() {
     preloader.innerHTML = `
       <div class="preloader-content">
         <div class="preloader-sprite-box">
-          <img id="preloaderSprite" src="assets/1.png" alt="Loading Character" class="preloader-sprite-img">
+          <img id="preloaderSprite" src="assets/stand1.png" alt="Loading Character" class="preloader-sprite-img">
         </div>
         <h3 class="preloader-title">Memuat Lembaran Sketsa...</h3>
         <div class="preloader-bar-track">
