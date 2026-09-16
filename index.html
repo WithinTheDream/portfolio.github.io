@@ -39,6 +39,16 @@
 <body class="bg-paper text-ink selection:bg-black selection:text-white">
 
   <!-- =========================================================================
+       PAGE ENTRANCE LOAD ANIMATION
+       ========================================================================= -->
+  <div class="page-loader-overlay" id="pageLoaderOverlay">
+    <div class="loader-sketch-box">
+      <div class="loader-sketch-spinner"></div>
+      <span class="loader-sketch-text">Membuka Sketsa...</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
        1. FIXED FLOATING PILL NAVBAR (B&W KAPSUL KERTAS)
        ========================================================================= -->
   <nav class="paper-navbar-wrapper" aria-label="Main Navigation">
@@ -93,7 +103,7 @@
             Selamat datang di <span class="highlight-pen">Website Portofolioku</span>
           </h1>
 
-          <!-- Blok Informasi Teks (Tentang Saya / Profil Profesional) - Tanpa Background Card & Garis Putus-putus -->
+          <!-- Blok Informasi Teks (Tentang Saya / Profil Profesional) - Tanpa Garis Putus-putus & Tanpa Box -->
           <div class="w-full text-left mb-8">
             <div class="flex items-center gap-2 text-ink font-hand text-2xl font-bold mb-3">
               <i class="fa-solid fa-quote-left"></i>
@@ -105,7 +115,7 @@
               Halo! Saya Adam, seorang programmer sekaligus seniman visual. Saya suka menggabungkan seni tradisional dan digital untuk menciptakan karya yang unik. Di sini, Anda dapat melihat portofolio saya, mulai dari sketsa tangan hingga animasi interaktif.
             </p>
 
-            <div class="flex flex-wrap gap-2 pt-2 border-t border-gray-300 text-xs font-sans font-bold">
+            <div class="flex flex-wrap gap-2 pt-2 text-xs font-sans font-bold">
               <span class="px-2.5 py-1 bg-black text-white rounded">Software Engineering</span>
               <span class="px-2.5 py-1 bg-black text-white rounded">Interactive Web</span>
               <span class="px-2.5 py-1 bg-black text-white rounded">Visual Technology</span>
@@ -258,7 +268,7 @@
           </div>
         </div>
 
-        <!-- Objek Belakang Menuju Bagian Tengah -->
+        <!-- Objek Belakang Akhir Lorong -->
         <img src="assets/object/cloud.png" alt="Cloud 2" class="corridor-object obj-layer-back float-delay-1" 
              style="left: 2580px; top: -25px; width: 250px;">
         <img src="assets/object/book2.png" alt="Book 2" class="corridor-object obj-layer-back float-delay-4" 
@@ -266,60 +276,53 @@
         <img src="assets/object/randomshape4.png" alt="Shape 4" class="corridor-object obj-layer-back float-delay-3" 
              style="left: 3260px; top: 20px; width: 160px;">
 
-        <!-- 🏆 FIGURA RIWAYAT 5: PRESTASI & HACKATHON (Di Belakang Karakter, z-index: 12) -->
-        <div class="corridor-figura-cluster obj-layer-back" style="left: 3660px; top: 50px;">
+        <!-- 🌐 FIGURA RIWAYAT 5: OPEN SOURCE & KOMUNITAS (Di Belakang Karakter, z-index: 12) -->
+        <div class="corridor-figura-cluster obj-layer-back" style="left: 3580px; top: 45px;">
           <!-- Teks Kiri Sesuai Sketsa -->
           <div class="figura-side-text figura-text-left">
-            <span class="figura-sub">Tantangan & Ide</span>
-            <h5 class="figura-head">Hackathon Build</h5>
-            <p class="figura-note">Membangun prototipe cepat dengan arsitektur tangguh di bawah tenggat waktu.</p>
+            <span class="figura-sub">Open Source</span>
+            <h5 class="figura-head">Git & Komunitas</h5>
+            <p class="figura-note">Membangun modul reusable dan berbagi riset teknologi publik.</p>
             <div class="figura-line"></div>
           </div>
 
-          <!-- Figura Sketsa Tengah (figura kosong) -->
+          <!-- Figura Sketsa Tengah -->
           <div class="figura-frame-wrapper">
-            <img src="assets/figura kosong.png" alt="Figura Sketsa Prestasi" class="figura-sketch-asset">
+            <img src="assets/figura kosong.png" alt="Figura Sketsa Komunitas" class="figura-sketch-asset">
           </div>
 
           <!-- Teks Kanan Sesuai Sketsa -->
           <div class="figura-side-text figura-text-right">
-            <span class="figura-tag">Pencapaian</span>
-            <h5 class="figura-head">Kolaborasi Tim</h5>
-            <p class="figura-note">Menghadirkan solusi perangkat lunak yang inovatif, teruji, dan berdampak nyata.</p>
+            <span class="figura-tag">Kolaborasi</span>
+            <h5 class="figura-head">Ekosistem Dev</h5>
+            <p class="figura-note">Terhubung dengan komunitas pengembang & berkontribusi proyek bersama.</p>
             <div class="figura-line"></div>
           </div>
 
           <!-- Teks Bawah Sesuai Sketsa -->
           <div class="figura-side-text figura-text-bottom">
-            <p class="figura-note">Kompetisi mengasah ketajaman problem solving dan kecepatan integrasi sistem.</p>
+            <p class="figura-note">Kolaborasi memperkaya perspektif rekayasa dalam menciptakan solusi nyata.</p>
           </div>
         </div>
 
-        <!-- Objek Belakang Menuju Akhir Lorong -->
-        <img src="assets/object/book.png" alt="Book 3" class="corridor-object obj-layer-back float-delay-2" 
-             style="left: 3520px; top: 480px; width: 160px;">
-        <img src="assets/object/cloud.png" alt="Cloud 3" class="corridor-object obj-layer-back float-delay-1" 
-             style="left: 3960px; top: -30px; width: 240px;">
-        <img src="assets/object/ball.png" alt="Ball 3" class="corridor-object obj-layer-back float-delay-4" 
-             style="left: 4180px; top: 470px; width: 140px;">
-        <img src="assets/object/randomshape.png" alt="Shape 5" class="corridor-object obj-layer-back float-delay-3" 
-             style="left: 4740px; top: 30px; width: 150px;">
-        <img src="assets/object/randomshape4.png" alt="Shape 6" class="corridor-object obj-layer-back float-delay-2" 
-             style="left: 4940px; top: 450px; width: 160px;">
+        <img src="assets/object/ball.png" alt="Ball Back" class="corridor-object obj-layer-back float-delay-2" 
+             style="left: 3960px; top: 500px; width: 130px;">
+        <img src="assets/object/book.png" alt="Book Back" class="corridor-object obj-layer-back float-delay-1" 
+             style="left: 4120px; top: -15px; width: 170px;">
+        <img src="assets/object/cloud.png" alt="Cloud Back" class="corridor-object obj-layer-back float-delay-3" 
+             style="left: 4620px; top: 480px; width: 230px;">
 
 
         <!-- ===================================================================
-             LAYER 2: KARAKTER 400% LEBIH BESAR DENGAN BAYANGAN & BUBBLE TEKS ASLI DI KIRI
+             LAYER 2: KARAKTER 400% LEBIH BESAR DENGAN BAYANGAN & UI DIALOG MINIMALIS
              (z-index: 20 - Melangkah di antara Figura Belakang dan Figura Depan)
              =================================================================== -->
         <div class="sketch-char-walker-huge" id="sketchCharWalker" style="left: 250px;">
           
-          <!-- BUBBLE TEKS SKETSA ASLI (assets/bubleteks.png) DI SEBELAH KIRI KARAKTER -->
-          <div class="char-speech-bubble" id="sketchCharSpeech">
-            <img src="assets/bubleteks.png" alt="Bubble Dialog" class="speech-bubble-img">
-            <div class="speech-bubble-text-box">
-              <span id="dialogText">Melangkah menelusuri lorong profil & ide</span>
-            </div>
+          <!-- UI DIALOG KARAKTER (Kecil, Minimalis & Sleek HUD) -->
+          <div class="char-dialog-minimal" id="sketchCharSpeech">
+            <span class="dialog-pulse-dot"></span>
+            <span id="dialogText">Melangkah menelusuri lorong profil & ide</span>
           </div>
           
           <!-- Avatar Karakter 400% Lebih Besar (360px x 440px) -->
@@ -424,45 +427,64 @@
         <img src="assets/object/randomshape3.png" alt="Shape 3 Front" class="corridor-object obj-layer-front float-delay-2" 
              style="left: 3340px; top: 300px; width: 160px;">
 
-        <!-- TV KETIGA EKSTRA BESAR di Depan -->
-        <img src="assets/object/tv.png" alt="TV Huge 3" class="corridor-object obj-layer-front obj-tv-huge float-delay-3" 
-             style="left: 3820px; top: 310px;">
-
-        <!-- 🔮 FIGURA 6: VISI MASA DEPAN & STUDIO KREATIF (Di Depan Karakter, z-index: 32) -->
-        <div class="corridor-figura-cluster obj-layer-front" style="left: 4380px; top: 195px;">
+        <!-- 🚀 FIGURA 6: CREATIVE ENGINEERING & MASA DEPAN (Di Depan Karakter, z-index: 32) -->
+        <div class="corridor-figura-cluster obj-layer-front" style="left: 4280px; top: 190px;">
           <!-- Teks Kiri Sesuai Sketsa -->
           <div class="figura-side-text figura-text-left">
-            <span class="figura-sub">Visi Digital</span>
-            <h5 class="figura-head">Studio Riset</h5>
-            <p class="figura-note">Menggabungkan ilustrasi manual dengan antarmuka web masa depan.</p>
+            <span class="figura-sub">Seni & Logika</span>
+            <h5 class="figura-head">Creative Eng</h5>
+            <p class="figura-note">Mengawinkan estetika manual dengan presisi komputasi modern.</p>
             <div class="figura-line"></div>
           </div>
 
-          <!-- Figura Sketsa Tengah (figura kosong) -->
+          <!-- Figura Sketsa Tengah -->
           <div class="figura-frame-wrapper">
-            <img src="assets/figura kosong.png" alt="Figura Sketsa Visi" class="figura-sketch-asset">
+            <img src="assets/figura kosong.png" alt="Figura Creative Engineering" class="figura-sketch-asset">
           </div>
 
           <!-- Teks Kanan Sesuai Sketsa -->
           <div class="figura-side-text figura-text-right">
-            <span class="figura-tag">Masa Depan</span>
-            <h5 class="figura-head">Eksplorasi Baru</h5>
-            <p class="figura-note">Mengeksplorasi creative tech, animasi interaktif 2D/3D, dan seni komputasi.</p>
+            <span class="figura-tag">Visi Masa Depan</span>
+            <h5 class="figura-head">Eksplorasi Tak Terbatas</h5>
+            <p class="figura-note">Membangun pengalaman web yang memiliki jiwa seni dan kehandalan kode.</p>
             <div class="figura-line"></div>
           </div>
 
           <!-- Teks Bawah Sesuai Sketsa -->
           <div class="figura-side-text figura-text-bottom">
-            <p class="figura-note">Selalu antusias menyambut kolaborasi proyek baru yang berani dan inspiratif.</p>
+            <p class="figura-note">Setiap goresan dan baris logika adalah langkah membentuk identitas digital unik.</p>
           </div>
         </div>
 
-        <!-- KURSI KETIGA EKSTRA BESAR di Depan -->
-        <img src="assets/object/chair.png" alt="Chair Huge 3" class="corridor-object obj-layer-front obj-chair-huge float-delay-1" 
-             style="left: 4620px; top: 260px;">
+        <!-- Objek-Objek Menuju Akhir Lorong -->
+        <img src="assets/object/tv.png" alt="TV Huge 3" class="corridor-object obj-layer-front obj-tv-huge float-delay-1" 
+             style="left: 4560px; top: 290px;">
+        <img src="assets/object/chair.png" alt="Chair Huge 3" class="corridor-object obj-layer-front obj-chair-huge float-delay-3" 
+             style="left: 4720px; top: 260px;">
 
-        <img src="assets/object/emote.png" alt="Emote Front 2" class="corridor-object obj-layer-front float-delay-2" 
-             style="left: 4820px; top: 15px; width: 140px;">
+        <!-- ===================================================================
+             🌟 GRAND FIGURA PORTAL MENUJU MY WORK
+             - Figura Besar yang Mengapung dengan Bayangan Dinamis di Bawahnya
+             - Di atasnya terdapat teks 'Tekan Aku 👇'
+             - Ketika ditekan / diklik langsung masuk ke work.html
+             =================================================================== -->
+        <div class="corridor-grand-portal" style="left: 4980px; top: 80px;">
+          <a href="work.html" class="grand-portal-link" title="Masuk ke Halaman My Work">
+            <!-- Teks Tekan Aku Di Atas Figura -->
+            <div class="grand-tekan-aku">
+              <i class="fa-solid fa-hand-pointer text-sm"></i>
+              <span>Tekan Aku 👇</span>
+            </div>
+
+            <!-- Figura Besar Mengapung -->
+            <div class="grand-figura-float">
+              <img src="assets/figura kosong.png" alt="Portal Figura Besar Menuju My Work" class="grand-figura-img">
+            </div>
+
+            <!-- Bayangan Mengapung di Bawah Figura -->
+            <div class="grand-figura-shadow"></div>
+          </a>
+        </div>
 
       </div>
 

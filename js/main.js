@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = src;
   });
 
-  // Dimensi lorong panjang (5100px)
-  let charPixelPos = 250; // Posisi istirahat awal karakter di lorong (pixel)
+  // Dimensi lorong panjang (Diperluas ke 5600px untuk 2 figura tambahan & Grand Figura)
+  let charPixelPos = -120; // Mulai dari luar kiri layar untuk animasi entrance walk
   const minPixelPos = 120;
-  const maxPixelPos = 4920; // Panjang lintasan lorong yang diperluas
+  const maxPixelPos = 5250; // Panjang lintasan lorong diperluas
   const stepPixels = 6.5; // Langkah per interval
 
   let moveInterval = null;
@@ -116,32 +116,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Kamera Horizontal: Geser track lorong agar karakter tetap berada di bidang pandang utama
+    // Kamera Horizontal: Geser track lorong (5600px) agar karakter tetap di tengah pandangan
     if (corridorTrack && corridorViewport) {
       const viewportWidth = corridorViewport.clientWidth;
       const targetScroll = charPixelPos - (viewportWidth / 2);
-      const maxScroll = 5100 - viewportWidth;
+      const maxScroll = 5600 - viewportWidth;
       const clampedScroll = Math.max(0, Math.min(maxScroll, targetScroll));
       
       corridorTrack.style.transform = `translateX(-${clampedScroll}px)`;
     }
 
-    // Dialog responsif saat karakter melewati 6 figura riwayat
+    // Dialog responsif saat karakter melewati masing-masing figura riwayat
     if (dialogText) {
       if (charPixelPos >= 650 && charPixelPos <= 1100) {
-        dialogText.textContent = "🎓 Zona Riwayat Pendidikan (SDN Ngaluran & Studi Lanjut)";
+        dialogText.textContent = "🎓 Riwayat Pendidikan (SDN Ngaluran & Studi Lanjut)";
       } else if (charPixelPos >= 1350 && charPixelPos <= 1800) {
-        dialogText.textContent = "🎤 Zona Panggung Musik & Eksplorasi Seni Band";
+        dialogText.textContent = "🎤 Panggung Musik & Eksplorasi Seni Band";
       } else if (charPixelPos >= 2050 && charPixelPos <= 2500) {
-        dialogText.textContent = "💼 Zona Karir Rekayasa Software & Clean Code";
-      } else if (charPixelPos >= 2780 && charPixelPos <= 3250) {
-        dialogText.textContent = "🎨 Zona Coretan Sketsa Tangan & Creative Coding";
-      } else if (charPixelPos >= 3550 && charPixelPos <= 3980) {
-        dialogText.textContent = "🏆 Zona Prestasi, Hackathon & Kolaborasi Rekayasa";
-      } else if (charPixelPos >= 4250 && charPixelPos <= 4680) {
-        dialogText.textContent = "🔮 Zona Visi Masa Depan & Studio Riset Kreatif";
-      } else if (charPixelPos > 4700) {
-        dialogText.textContent = "🚀 Ujung lorong! Terima kasih telah menjelajahi perjalananku";
+        dialogText.textContent = "💼 Karir Rekayasa Software & Clean Architecture";
+      } else if (charPixelPos >= 2750 && charPixelPos <= 3200) {
+        dialogText.textContent = "🎨 Coretan Sketsa Tangan & Seni Visual Digital";
+      } else if (charPixelPos >= 3450 && charPixelPos <= 3900) {
+        dialogText.textContent = "🌐 Open Source, Git & Kolaborasi Komunitas";
+      } else if (charPixelPos >= 4150 && charPixelPos <= 4600) {
+        dialogText.textContent = "🚀 Creative Engineering & Visi Masa Depan";
+      } else if (charPixelPos > 4750) {
+        dialogText.textContent = "✨ Pintu Gerbang My Work! Tekan figura besar untuk masuk!";
       } else if (charPixelPos <= 500) {
         dialogText.textContent = "Melangkah menelusuri lorong profil & ide";
       }
@@ -295,60 +295,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // ANIMASI MASUK: OBJEK LORONG & KARAKTER BERJALAN DARI KIRI LAYAR KE POSISI AWAL
+  // ANIMASI ENTRANCE: LOADER HIDE & KARAKTER BERJALAN MASUK DARI KIRI LAYAR
   // =========================================================================
-  let hasTriggeredEntrance = false;
-  function triggerCharacterEntrance() {
-    if (hasTriggeredEntrance) return;
-    hasTriggeredEntrance = true;
+  const pageLoader = document.getElementById('pageLoaderOverlay');
 
-    // Aktifkan animasi masuk objek lorong
-    if (corridorTrack) {
-      corridorTrack.classList.add('loaded');
-    }
-
-    // Karakter melangkah masuk dari luar layar kiri (-180px) menuju posisi 250px
-    let entrancePos = -180;
-    const targetPos = 250;
-    charPixelPos = entrancePos;
-    updateCharacterPosition(entrancePos, 'right');
-
-    isWalking = true;
-    if (walker) walker.classList.add('walking');
+  function playEntranceWalk() {
+    let currentEntrancePos = -120;
+    updateCharacterPosition(currentEntrancePos, 'right');
     startWalkCycleAnimation();
 
     const entranceInterval = setInterval(() => {
-      // Jika user sudah mengambil alih kendali (menekan tombol), hentikan auto-walk
-      if (keysPressed['left'] || keysPressed['right']) {
-        clearInterval(entranceInterval);
-        return;
-      }
-
-      entrancePos += 7.5;
-      if (entrancePos >= targetPos) {
-        entrancePos = targetPos;
-        updateCharacterPosition(entrancePos, 'right');
-        clearInterval(entranceInterval);
-        isWalking = false;
-        stopWalkCycleAnimation();
+      if (currentEntrancePos < 240) {
+        currentEntrancePos += 9;
+        updateCharacterPosition(currentEntrancePos, 'right');
       } else {
-        updateCharacterPosition(entrancePos, 'right');
+        clearInterval(entranceInterval);
+        charPixelPos = 240;
+        updateCharacterPosition(charPixelPos, 'right');
+        stopWalkCycleAnimation();
       }
-    }, 20);
+    }, 24);
   }
 
-  // Picu saat halaman load jika posisi scroll sudah di worldSection, atau saat di-scroll
-  if ('IntersectionObserver' in window && worldSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          triggerCharacterEntrance();
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.12 });
-    observer.observe(worldSection);
+  function handlePageEntrance() {
+    if (pageLoader) {
+      setTimeout(() => {
+        pageLoader.classList.add('is-hidden');
+        setTimeout(() => {
+          pageLoader.style.display = 'none';
+        }, 450);
+      }, 200);
+    }
+    // Jalankan karakter berjalan masuk dari kiri layar ke posisi awal (240px)
+    playEntranceWalk();
+  }
+
+  // Trigger entrance saat window selesai dimuat
+  if (document.readyState === 'complete') {
+    handlePageEntrance();
   } else {
-    setTimeout(triggerCharacterEntrance, 400);
+    window.addEventListener('load', handlePageEntrance);
   }
 });

@@ -290,50 +290,12 @@ img {
   padding: 20px 0 40px;
 }
 
-/* Track Lorong Memanjang ke Kanan (5100px) - Luas dengan 6 Figura & Objek Kaya */
+/* Track Lorong Memanjang ke Kanan (5600px) - Panjang & Tinggi Diperluas */
 .corridor-track {
   position: relative;
-  width: 5100px;
+  width: 5600px;
   min-height: 720px;
   transition: transform 0.15s ease-out;
-}
-
-/* Animasi Entrance Website Saat Load */
-@keyframes pageLoadFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.home-section-hero {
-  animation: pageLoadFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Animasi Muncul Objek & Figura Saat Lorong Load */
-@keyframes sketchObjectEnter {
-  0% {
-    opacity: 0;
-    transform: scale(0.65) translateY(24px);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.04) translateY(-4px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.corridor-track.loaded .corridor-object,
-.corridor-track.loaded .corridor-figura-cluster {
-  animation: sketchObjectEnter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards,
-             floatGentle 4.5s ease-in-out infinite alternate;
 }
 
 /* Karakter 400% Lebih Besar dengan Bayangan Tegas */
@@ -379,64 +341,49 @@ img {
   transition: width 0.15s ease;
 }
 
-/* BUBBLE TEKS SKETSA ASLI (bubleteks.png) DI SEBELAH KIRI KARAKTER */
-.char-speech-bubble {
+/* UI DIALOG KARAKTER (Kecil, Minimalis & Sleek HUD) */
+.char-dialog-minimal {
   position: absolute;
-  top: 10px;
-  right: 80%; /* Diletakkan di sebelah kiri karakter */
-  width: 250px;
-  height: 250px;
+  top: -50px;
+  background: #000000;
+  color: #ffffff;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 7px;
   z-index: 25;
-  pointer-events: none;
-  user-select: none;
-  filter: drop-shadow(3px 6px 10px rgba(0, 0, 0, 0.22));
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-.speech-bubble-img {
+.char-dialog-minimal::after {
+  content: '';
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: #000000 transparent;
 }
 
-.speech-bubble-text-box {
-  position: absolute;
-  top: 12%;
-  left: 8%;
-  width: 76%;
-  height: 76%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 12px;
+.dialog-pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: pulseDot 1.5s infinite;
 }
 
-.speech-bubble-text-box #dialogText {
-  font-family: var(--font-hand);
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: #000000;
-  line-height: 1.25;
-  word-break: break-word;
-}
-
-@media (max-width: 768px) {
-  .char-speech-bubble {
-    width: 190px;
-    height: 190px;
-    right: 74%;
-    top: 5px;
-  }
-  .speech-bubble-text-box #dialogText {
-    font-size: 0.92rem;
-  }
+@keyframes pulseDot {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
 }
 
 /* TOMBOL NAVIGASI PANAH KIRI & KANAN DI SECTION 2 */
@@ -619,6 +566,101 @@ img {
   border-radius: 2px;
 }
 
+/* FIGURA BESAR DI AKHIR LORONG (PORTAL MENUJU MY WORK) */
+.corridor-grand-portal {
+  position: absolute;
+  left: 4950px;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 35;
+  user-select: none;
+}
+
+.grand-portal-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Teks Tekan Aku Di Atas Figura */
+.grand-tekan-aku {
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: tekanAkuBounce 1.5s ease-in-out infinite alternate;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.grand-portal-link:hover .grand-tekan-aku {
+  transform: scale(1.1);
+  background: #111111;
+}
+
+@keyframes tekanAkuBounce {
+  0% { transform: translateY(0px) scale(0.98); }
+  100% { transform: translateY(-8px) scale(1.04); }
+}
+
+/* Figura Besar yang Mengapung */
+.grand-figura-float {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: grandFloat 3.2s ease-in-out infinite alternate;
+}
+
+.grand-figura-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.28));
+  transition: transform 0.25s ease;
+}
+
+.grand-portal-link:hover .grand-figura-img {
+  transform: scale(1.05) rotate(1deg);
+}
+
+@keyframes grandFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(1.5deg); }
+  100% { transform: translateY(-28px) rotate(-1deg); }
+}
+
+/* Bayangan Mengapung di Bawah Figura */
+.grand-figura-shadow {
+  width: 280px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  filter: blur(6px);
+  margin-top: -12px;
+  animation: grandShadowPulse 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes grandShadowPulse {
+  0% { transform: scale(1); opacity: 0.38; }
+  100% { transform: scale(0.65); opacity: 0.16; }
+}
+
 /* Objek PNG Berterbangan di Lorong (assets/object/) */
 .corridor-object {
   position: absolute;
@@ -674,7 +716,7 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 20; /* Berada di bawah title dan card portofolio */
+  z-index: 40;
   pointer-events: none;
   display: flex;
   flex-direction: column;
@@ -723,24 +765,20 @@ img {
   100% { transform: rotate(3deg) translateY(6px); }
 }
 
-/* Efek Angin: Awalnya tidak aktif (opacity 0), aktif saat scroll */
+/* Efek Angin Stabil (Tanpa Bug Opacity Menurun Saat Idle) */
+.wind-gusts-container {
+/* Efek Angin Stabil (Tanpa Bug Icon Nyangkut di Atas Saat Awal Load) */
 .wind-gusts-container {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 25;
+  z-index: 35;
   overflow: hidden;
-  opacity: 0; /* Default 0: Tidak terlihat di atas saat awal load */
-  transition: opacity 0.3s ease;
-}
-
-.wind-gusts-container.wind-active {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .wind-stream {
   position: absolute;
-  top: 100vh; /* Mulai di bawah layar agar tidak bug diam di atas */
   width: 2.5px;
   background: repeating-linear-gradient(
     to top,
@@ -750,9 +788,11 @@ img {
     transparent 28px
   );
   border-radius: 9999px;
-  opacity: 0;
+  opacity: 0; /* Tersembunyi saat awal load / idle */
+  transform: translateY(120vh); /* Berada di luar layar bawah sebelum scroll */
   animation: windStreamBlast 1.2s linear infinite;
   animation-play-state: paused;
+  transition: opacity 0.25s ease;
 }
 
 .wind-active .wind-stream {
@@ -777,12 +817,13 @@ img {
 
 .wind-swirl {
   position: absolute;
-  top: 100vh; /* Mulai di bawah layar */
   font-size: 2.2rem;
   color: #000000;
-  opacity: 0;
+  opacity: 0; /* Tersembunyi saat awal load / idle */
+  transform: translateY(120vh); /* Berada di luar layar bawah sebelum scroll */
   animation: windSwirlBlast 1.5s ease-out infinite;
   animation-play-state: paused;
+  transition: opacity 0.25s ease;
 }
 
 .wind-active .wind-swirl {
@@ -809,13 +850,14 @@ img {
   animation: floatGentle 5s ease-in-out infinite alternate;
 }
 
+/* Container Portofolio dengan Z-Index di Atas Karakter Jatuh */
 .work-grid-container {
   display: flex;
   flex-direction: column;
   gap: 120px;
   padding: 40px 20px 140px;
   position: relative;
-  z-index: 35; /* Berada di atas karakter */
+  z-index: 55; /* Di atas karakter jatuh yang ber-z-index 40 */
 }
 
 .project-row-left {
@@ -830,6 +872,7 @@ img {
   width: 100%;
 }
 
+/* Card Portofolio Berada di Atas Karakter Jatuh (Z-Index 55) */
 .project-split-card {
   width: 100%;
   max-width: 480px;
@@ -839,7 +882,7 @@ img {
   padding: 32px;
   box-shadow: var(--shadow-sketch-lg);
   position: relative;
-  z-index: 35; /* Berada di atas karakter */
+  z-index: 55; /* Di atas karakter jatuh */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1057,3 +1100,59 @@ img {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   PAGE ENTRANCE LOAD ANIMATION (UNTUK SEMUA HALAMAN)
+   ========================================================================== */
+.page-loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-paper, #ffffff);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-loader-overlay.is-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.loader-sketch-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.loader-sketch-spinner {
+  width: 46px;
+  height: 46px;
+  border: 3.5px solid #000000;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: sketchSpin 0.75s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+@keyframes sketchSpin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-sketch-text {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 0.05em;
+  animation: loaderPulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes loaderPulse {
+  0% { opacity: 0.5; transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1.03); }
+}
+
